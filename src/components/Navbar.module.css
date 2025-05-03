@@ -1,0 +1,119 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  top: 50vh;
+  background-color: #FFFCF5;
+}
+
+.navBar {
+  width: 100vw; /* full viewport width */
+  height: 18vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 2rem;
+  color: #000;
+  box-sizing: border-box;
+  position: relative;
+  top: 0vh;
+  background-color: rgba(255, 252, 245, 0.5);
+}  
+
+.spacer {
+  width: 2vw;
+}
+
+.logo {
+  position: relative;
+  z-index: 1;
+  background-size: cover;
+  margin-right: 4vw;
+}
+
+.signUp {
+  border-style: solid;
+  border-color: #3A5F26;
+  border-width: 3px;
+  border-radius: 50px;
+  background-color: #FFFCF5;
+  position: relative;
+  color: #3A5F26;
+  margin-right: 4vw;
+  margin-left: -2vw;
+}
+
+.logIn {
+  border-style: solid;
+  border-color: #053007;
+  border-width: 3px;
+  border-radius: 50px;
+  background-color: #3A5F26;
+  position: relative;
+  color: #D9EC81;
+  margin-right: 4vw;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  position: relative;
+}
+
+@media screen and (min-width: 1440px) {
+        
+  .signUp {
+    font-size: .75em;
+    left: 7vw;
+    top: -2vh;
+  }
+  .logIn {
+    font-size: .75em;
+    left: 2vw;
+    top: -2vh;
+  }
+  .searchIcon {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    top: -2vh;
+    left: -3vw;
+  }
+  .logo {
+    top: 0vh;
+    left: 0vw;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+      
+  .signUp {
+    left: 10vw;
+    top: -2vh;
+    font-size: 1em;
+  }
+  .logIn {
+    left: 4vw;
+    top: -2vh;
+    font-size: 1em;
+  }
+  .searchIcon {
+    position: relative;
+    width: 85px;
+    height: 85px;
+    left: -2vw;
+    top: -2.5vh;
+  }
+  .logo {
+    top: 0vh;
+    left: 0vw;
+    width: 250px;
+    height: 250px;
+  }
+}

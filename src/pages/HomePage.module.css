@@ -1,0 +1,603 @@
+/* Home Page Layout */
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 50vh;
+    background-color: #FFFCF5;
+  }
+
+  .navBar {
+    width: 100vw; /* full viewport width */
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 2rem;
+    color: #333;
+    box-sizing: border-box;
+    position: relative;
+    top: 3vh;
+  }  
+
+  .logo {
+    position: relative;
+    z-index: 1;
+    background-size: cover;
+  }
+
+  .signUp {
+    border-style: solid;
+    border-color: #3A5F26;
+    border-width: 3px;
+    border-radius: 50px;
+    background-color: #FFFCF5;
+    position: relative;
+    color: #3A5F26;
+  }
+
+  .logIn {
+    border-style: solid;
+    border-color: #053007;
+    border-width: 3px;
+    border-radius: 50px;
+    background-color: #3A5F26;
+    position: relative;
+    color: #D9EC81;
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+
+  /* FoodMain Background */
+  .foodMain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Push behind everything else */
+  }
+
+  .textBackground {
+    position: relative;
+    top: 15vh;
+    background-color: rgba(5, 48, 7, 0.75);
+    border-radius: 25px;
+    margin: 0 auto;
+  }
+  
+  .titleText1 {
+    position: relative;
+    font-family: "Nothing You Could Do", cursive;
+    color: #D9EC81;
+    opacity: 1;
+  }
+
+  .titleText2 {
+    position: relative;
+    font-family: "Nothing You Could Do", cursive;
+    color: #FC7217;
+    opacity: 1;
+  }
+
+  .titleText3 {
+    position: relative;
+    font-family: Aleo;
+    text-align: center;
+  }
+
+  .ingredientSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+  }
+
+  .searchTitleText {
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 3vh;
+  }
+
+  .searchBar {
+    background-color: #3A5F26;
+    opacity: 85%;
+    border-style: solid;
+    border-color: #FC7217;
+    border-width: 3px;
+    border-radius: 50px;
+    font-family: Aleo;
+    font-size: 2em;
+    padding-left: 2vw;
+  }
+
+  .searchButton {
+    border-radius: 50px;
+    position: relative;
+    background-color: rgba(252, 114, 23, 0.6);
+    font-family: Aleo;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .middleText {
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 2em;
+    color: #333;
+    position: relative;
+    top: -1vh;
+  }
+  
+  .ingredientChoiceTitle {
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 2em;
+    color: #333;
+    position: relative;
+    top: 2vh;
+    margin-bottom: 10vh;
+  }
+
+  .ingredientImages {
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    flex-wrap: wrap;
+  }
+  
+  .ingredient {
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    align-items: center;     /* center text under image */
+    width: fit-content;
+    background: none;
+    border: none;
+  }
+  
+  .ingredientImage {
+    width: 20vh;
+    height: 20vh;
+    object-fit: cover;
+    border-radius: 15vh;
+  }
+  
+  .ingredientLabel {
+    margin-top: 2vh;
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    font-family: Aleo, sans-serif;
+  }
+
+  .moreIngredientTab {
+    color:#000;
+    font-size: 1.5em;
+    font-family: Aleo, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 5vh 0 2vh 0;
+  }
+
+  .dropdownButton {
+    display: flex;
+    justify-content: center; /* or 'flex-start' or 'flex-end' */
+    align-items: center;
+    position: relative;
+  }
+  
+  /*.image {
+    width: 30%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+  }
+    */
+
+      /* AI Cooking Assistant */
+  .aiCookingAssistant {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #053007;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+    margin-top: 13vh;
+  }
+
+  .aiTitle {
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 5em;
+    position: relative;
+    top: 20vh;
+  }
+
+  .aiDescription {
+    font-family: Aleo, serif;
+    font-size: 2em;
+    position: relative;
+    top: 20vh;
+    width: 40vw;
+    text-align: center;
+  }
+
+  .searchBar2 {
+    background-color: #3A5F26;
+    opacity: 85%;
+    border-style: solid;
+    border-color: #FC7217;
+    border-width: .5vb;
+    border-radius: 50vb;
+    font-family: Aleo;
+    font-size: 2em;
+    padding-left: 2vw;
+    height: 9vh;
+    width: 50vw;
+    position: relative;
+    top: 25vh;
+  }
+
+  .searchButton2 {
+    border-radius: 50vb;
+    position: relative;
+    background-color: rgba(252, 114, 23, 0.6);
+    font-family: Aleo;
+  }
+  
+  /* Recipe Section */
+  .popularRecipes {
+    position: relative;
+    font-family: 'Aleo';
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 235vh;
+    color:#000;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .popularRecipeText {
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 4em;
+    color: #000;
+    text-align: center;
+  }
+
+  .recipeContainer {
+    display: grid;
+    grid-template-columns: 20vw 40vw;
+    padding-top: 15vh;
+    column-gap: 2vw;
+  }
+
+  .recipeContainer2 {
+    display: grid;
+    grid-template-columns: 20vw 18vw;
+    padding-top: 10vh;
+    column-gap: 23svw;
+  }
+  
+  .recipeImage{
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50vb;
+    grid-row: 1 / span 3;
+  }
+
+  .recipeImage2{
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50vb;
+    grid-row: 1 / span 3;
+    grid-column: 2;
+  }
+
+  .recipeTitle {
+    font-family: 'Nothing You Could Do';
+    font-size: 2.75em;
+    padding-bottom: 2vh;
+    text-decoration: underline;
+    width: 40vw;
+  }
+  
+  .recipeDescription {
+    font-family: 'Aleo';
+    font-size: 2em;
+    width: 40vw;
+    padding-bottom: 2vh;
+  }
+  
+  .goToRecipe {
+    font-family: 'Nothing You Could Do';
+    font-size: 3em;
+    display: inline-flex;
+    width: 30vw;
+    gap: 3vw;
+  }
+
+  .flippedArrow {
+    transform: rotate(180deg);
+    height: 7vh;
+  }
+
+  .recipeLineBreak {
+    margin-top: 10vh;
+    height: .2vh;
+    border-width: 0;
+    width: 60vw;
+    color:#333;
+    background-color: #333;
+    opacity: 40%;
+  }
+
+  .moreRecipesLink {
+    text-align: center;
+    font-family: Aleo, serif;
+    font-size: 2.5em;
+    margin-top: 25vh;
+    text-decoration: underline;
+  }
+
+  /* Footer Section */
+
+  .footerImage {
+    width: 100%;
+    height: 140vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 20vh;
+  }
+
+  .footer {
+    height: 46vh;
+    background-color: #04050A;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 20vw 5vw 10vw 15vw 25vw;
+    justify-content: center;
+    font-family: Aleo, serif;
+  }
+
+  .logoCopyIcons {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    font-size: 1.9em;
+    line-height: 10vh;
+  }
+  
+  .bottomLogo {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 18vh;
+    width: 13vw;
+    border-radius: 6vb;
+    overflow: hidden;
+  }
+
+  .linkLines {
+    height: 8vh;
+    width: .3vw;
+    margin-bottom: 3.7vh;
+    margin-top: 2vh;
+    border-radius: .3vb;
+    background-color: #FFF;
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+
+  .bottomLinks {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+    color: #FFF;
+    font-size: 2.8em;
+    line-height: 12vh;
+  }
+
+  .lineSplit {
+    grid-column: 4;
+    height: 45vh;
+    width: .3vw;
+    border-radius: .3vb;
+    background-color: #FFF;
+    margin-top: -5vh;
+  }
+
+  /* Social Media Icons */
+  .socialMediaIcons {
+    grid-column: 5;
+    grid-row: 1 / span 2;
+    font-size: 3em;
+    text-align: center;
+    margin-top: 2vh;
+    line-height: 10vh;
+  }
+  
+  .socialIcons {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+      
+  .socialIcon {
+    width: 5vw;
+    height: 5vh;
+    object-fit: contain;
+  }
+        
+
+      @media screen and (min-width: 1440px) {
+        
+        .signUp {
+          font-size: .75em;
+          left: 7vw;
+          top: -2vh;
+        }
+        .logIn {
+          font-size: .75em;
+          left: 2vw;
+          top: -2vh;
+        }
+        .searchIcon {
+          position: relative;
+          width: 70px;
+          height: 70px;
+          top: -2vh;
+          left: -3vw;
+        }
+        .logo {
+          top: 1vh;
+          left: 0vw;
+          width: 200px;
+          height: 200px;
+        }
+        .textBackground {
+          width: 55vw;
+          height: 60vh;
+        }
+        .titleText1 {
+          top: 4vh;
+          left: 6vw;
+          font-size: 5em;
+        }
+        .titleText2 {
+          top: -5vh;
+          left: 13vw;
+          font-size: 5em;
+        }
+        .titleText3 {
+          top: -7vh;
+          left: 5vw;
+          font-size: 1.7em;
+          width: 45vw;
+        }
+        .searchBar {
+          height: 10vh;
+          width: 50vw;
+        }
+        .searchButton {
+          height: 9.8vh;
+          width: 10vw;
+          top: -10.4vh;
+          left: 20.9vw;
+        }
+        .searchButton2 {
+          font-size: 1.5em;
+          top: 13.6vh;
+          left: 20.5vw;
+        }
+
+        .recipeImage{
+          height: 40vh;
+          width: 18vw;
+          margin-top: 5vh;
+        }
+        .recipeImage2{
+          height: 40vh;
+          width: 18vw;
+          margin-top: 5vh;
+        }
+
+        .footerImage {
+          margin-top: 60vh;
+        }
+      }
+      
+      @media screen and (min-width: 1920px) {
+      
+        .signUp {
+          left: 10vw;
+          top: -2vh;
+          font-size: 1em;
+        }
+        .logIn {
+          left: 4vw;
+          top: -2vh;
+          font-size: 1em;
+        }
+        .searchIcon {
+          position: relative;
+          width: 85px;
+          height: 85px;
+          left: -2vw;
+          top: -2.5vh;
+        }
+        .logo {
+          top: 0vh;
+          left: 0vw;
+          width: 250px;
+          height: 250px;
+        }
+        .textBackground {
+          width: 50vw;
+          height: 50vh;
+        }
+        .titleText1 {
+          top: 3vh;
+          left: 4vw;
+          font-size: 6em;
+        }
+        .titleText2 {
+          top: -5vh;
+          left: 11vw;
+          font-size: 6em;
+        }
+        .titleText3 {
+          top: -8vh;
+          left: 5vw;
+          font-size: 2em;
+          width: 40vw;
+        }
+        .searchBar {
+          height: 8vh;
+          width: 50vw;
+        }
+        .searchButton {
+          height: 7.8vh;
+          width: 9vw;
+          top: -8.4vh;
+          left: 21.46vw;
+        }
+        .searchButton2 {
+          font-size: 2em;
+          top: 13.65vh;
+          left: 20.15vw;
+        }
+
+        .recipeImage{
+          height: 40vh;
+          width: 19vw;
+          margin-top: 0;
+        }
+        .recipeImage2{
+          height: 40vh;
+          width: 19vw;
+          margin-top: 0;
+        }
+
+        .footerImage {
+          margin-top: 0vh;
+        }
+      }
+  

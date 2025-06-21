@@ -1,0 +1,21 @@
+.aboutSection{
+    color: black;
+    font-family: Aleo, serif;
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    background-color: #FDF8E1;
+}
+
+.aboutParagraph {
+    width: 75vw;
+    margin: 0 auto;
+}
+
+.signature {
+    width: 75vw;
+    margin: 2% 15%;
+    font-family: "Nothing You Could Do", cursive;
+}

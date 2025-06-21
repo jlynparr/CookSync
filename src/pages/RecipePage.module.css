@@ -1,0 +1,71 @@
+.mainBody {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 8vw;
+  }
+  
+  .infoGroup {
+    display: flex;
+    gap: 1vw; /* adjust spacing between icon and text */
+    padding-top: 5vh;
+  }
+  
+  .time,
+  .difficulty,
+  .servings {
+    color: #000;
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 2em;
+    padding-top: 1vh;
+  }
+
+  .breakLines {
+    display: flex;
+    margin-top: 5vh;
+  }
+
+  .line1 {
+    width: 30vw;
+    height: .1vh;
+    background-color: #000;
+  }
+
+  .line2 {
+    width: 50vw;
+    height: .1vh;
+    background-color: #000;
+  }
+
+  .groupTitles {
+    display: flex;
+    color: #000; 
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 1.75em;
+    text-align: left;
+  }
+
+  .ingredientTitle {
+    width: 40vw;
+    margin-left: 5vw;
+  }
+
+  .lists {
+    display: flex;
+    justify-content: space-around;
+    color:#000;
+    font-family: "Aleo", serif;
+    font-size: 1.2em;
+    margin-bottom: 10vh;
+  }
+
+  .ingredientList {
+    width: 30vw;
+  }
+
+  .stepsList {
+    width: 50vw;
+  }
+
+  

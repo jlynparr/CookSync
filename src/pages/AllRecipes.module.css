@@ -1,0 +1,72 @@
+.letterRange {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 2em;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8vw;
+}
+
+.mainTitle {
+    font-family: "Julius Sans One", sans-serif;
+    color: black;
+    font-size: 3em;
+    text-align: center;
+    margin: 15vh auto;
+}
+
+.chosenRange {
+    font-family: "Julius Sans One", sans-serif;
+    color: black;
+    font-size: 3em;
+    text-align: center;
+}
+
+
+
+.recipeTitle {
+    font-family: "Nothing You Could Do", cursive;
+    color: black;
+    font-size: 2.5em;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, .5);
+    padding-left: 20%;
+    text-decoration: underline;
+}
+
+.recipeDescription {
+    font-family: Aleo, serif;
+    color: black;
+    font-size: 2em;
+    width: 60vw;
+    padding-left: 20%;
+}
+
+
+.goToRecipe {
+    font-family: 'Nothing You Could Do';
+    font-size: 3em;
+    color: #FC7217;
+    display: inline-flex;
+    width: 30vw;
+    gap: 3vw;
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, .8);
+    padding-left: 22%;
+}
+
+.flippedArrow {
+    transform: rotate(180deg);
+    height: 7vh;
+    filter: drop-shadow(-3px -4px 2px rgba(0, 0, 0, .6));
+}
+
+.pageChange {
+    font-family: Aleo, serif;
+    font-size: 1.5em;
+    color:black;
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+}

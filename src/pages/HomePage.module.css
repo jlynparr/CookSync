@@ -21,7 +21,11 @@
     box-sizing: border-box;
     position: relative;
     top: 3vh;
-  }  
+  } 
+  
+  .home, .recipes, .about{
+    color: black;
+  }
 
   .logo {
     position: relative;
@@ -56,7 +60,6 @@
     background-size: cover;
     position: relative;
   }
-  
 
   /* FoodMain Background */
   .foodMain {
@@ -114,27 +117,40 @@
     margin-bottom: 3vh;
   }
 
+  .searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .searchBar {
-    background-color: #3A5F26;
-    opacity: 85%;
+    background-color: rgba(58, 95, 38, .85);
     border-style: solid;
     border-color: #FC7217;
-    border-width: 3px;
-    border-radius: 50px;
+    border-width: .2rem;
+    border-radius: 50px 0 0 50px;
     font-family: Aleo;
-    font-size: 2em;
+    font-size: 2rem;
     padding-left: 2vw;
+    box-sizing: border-box;
+    color:white;
+    height: 10vh;
+    outline: none;
   }
 
   .searchButton {
-    border-radius: 50px;
-    position: relative;
-    background-color: rgba(252, 114, 23, 0.6);
+    background-color: rgba(252, 114, 23);
+    border-style: solid;
+    border-color: #FC7217;
+    border-width: .2rem;
+    border-radius: 0 50px 50px 0;
     font-family: Aleo;
-    font-size: 2em;
+    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 10vh;
+    box-sizing: border-box;
   }
 
   .middleText {
@@ -192,6 +208,7 @@
     display: flex;
     justify-content: center;
     margin: 5vh 0 2vh 0;
+    background-color: none;
   }
 
   .dropdownButton {
@@ -319,6 +336,11 @@
     padding-bottom: 2vh;
     text-decoration: underline;
     width: 40vw;
+    color: black;
+  }
+
+  .recipeTitle:hover {
+    color:#D9EC81;
   }
   
   .recipeDescription {
@@ -334,6 +356,11 @@
     display: inline-flex;
     width: 30vw;
     gap: 3vw;
+    color: black;
+  }
+
+  .goToRecipe:hover {
+    color: #FC7217;
   }
 
   .flippedArrow {
@@ -357,6 +384,11 @@
     font-size: 2.5em;
     margin-top: 25vh;
     text-decoration: underline;
+    color: black;
+  }
+
+  .moreRecipesLink:hover {
+    color:#FC7217;
   }
 
   /* Footer Section */

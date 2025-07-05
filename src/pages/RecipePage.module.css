@@ -5,6 +5,16 @@
     text-align: left;
     gap: 8vw;
   }
+
+  .recipeDescription {
+    font-size: 2rem;
+    color: black;
+    font-family: "Aleo", serif;
+    width: 70vw;
+    margin: 0 auto;
+    padding: 10vh 0 5vh 0;
+    text-align: center;
+    }
   
   .infoGroup {
     display: flex;

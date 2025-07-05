@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from "./HomePage.module.css";
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 import mainImage from "../assets/images/MainFoodImage.png";
 import foodImage1 from "../assets/images/Peppers.png";
@@ -63,19 +65,7 @@ const HomePage = () => {
     <>
       {/* NavBar Image */}
       <div className={styles.navBar}>
-      <div
-        className={styles.logo}
-        style={{ backgroundImage: `url(${logo})` }}
-      ></div>
-      <Link to='/' className={styles.home}>Home</Link>
-      <Link to='/recipes' className={styles.recipes}>Recipes</Link>
-      <Link to='/about' className={styles.about}>About</Link>
-      <Link to="/create-account"><button className={styles.signUp}>Sign Up</button></Link>
-      <Link to="/login"><button className={styles.logIn}>Log In</button></Link>
-      <div
-        className={styles.search}>
-        <SearchIcon />
-      </div>
+        <Navbar />
       </div>
 
       {/* Background Image */}
@@ -212,36 +202,8 @@ const HomePage = () => {
         </div>
 
         {/* Footer */}
-        <div className={styles.footerImage}
-              style={{ backgroundImage: `url(${foodImage1})`}}
-        ></div>
         <div className={styles.footer}>
-          <div className={styles.logoCopyIcons}>
-            <div className={styles.bottomLogo}
-              style={{ backgroundImage: `url(${bottomLogo})`}}
-            ></div>  
-            <div>&copy; Copyright 2025</div>
-          </div>
-          <div>
-            <hr className={styles.linkLines}></hr>
-            <hr className={styles.linkLines}></hr>
-            <hr className={styles.linkLines}></hr>
-          </div>
-          <div>
-            <a className={styles.bottomLinks}>Home</a>
-            <br></br>
-            <a className={styles.bottomLinks}>About</a>
-            <br></br>
-            <a className={styles.bottomLinks}>Recipes</a>
-          </div>
-          <hr className={styles.lineSplit}></hr>
-          <div className={styles.socialMediaIcons}>Contact Us<br></br>
-            <img src={instagramIcon} alt="Instagram" className={styles.socialIcon} />
-            <img src={youtubeIcon} alt="YouTube" className={styles.socialIcon} />
-            <img src={tiktokIcon} alt="TikTok" className={styles.socialIcon} />
-            <img src={facebookIcon} alt="Facebook" className={styles.socialIcon} />
-            <img src={twitterIcon} alt="Twitter" className={styles.socialIcon} />
-          </div>
+          <Footer />
         </div>
       </div>
     </>

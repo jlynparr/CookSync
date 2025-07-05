@@ -25,6 +25,7 @@ useEffect(() => {
       .select(`
         id,
         name,
+        description,
         time_mins,
         difficulty,
         servings,
@@ -60,6 +61,7 @@ if (!recipe) return <p>Loading...</p>;
                 <Navbar/>
                 <HeroImage image={hummusImage} title={recipe.name || "Recipe"}/>
             </div>
+            <div className={styles.recipeDescription}>{recipe.description}</div>
             <div className={styles.mainBody}>
                 <div className={styles.infoGroup}>
                     <img src={timeIcon} style={{ height: 50, width: 50 }} />

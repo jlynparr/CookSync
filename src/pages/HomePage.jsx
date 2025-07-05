@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 import mainImage from "../assets/images/MainFoodImage.png";
-import foodImage1 from "../assets/images/Peppers.png";
 import pepperImage from "../assets/images/blackPepper.jpg";
 import oliveOilImage from "../assets/images/oliveOil.jpg";
 import saltImage from "../assets/images/salt.jpg";
@@ -13,18 +12,12 @@ import garlicImage from "../assets/images/garlic.jpg";
 import spaghettiImage from "../assets/images/spaghetti.jpg";
 import garlicButterImage from "../assets/images/garlicButterChicken.jpg";
 import tomatoSoupImage from "../assets/images/tomatoSoup.jpg";
-import instagramIcon from "../assets/images/instagram.png";
-import facebookIcon from "../assets/images/facebook.png";
-import tiktokIcon from "../assets/images/tiktok.png";
-import youtubeIcon from "../assets/images/youtube.png";
-import twitterIcon from "../assets/images/twitterIMG.png";
-import logo from "../assets/images/cooksynclogo.png";
-import bottomLogo from "../assets/images/bottomLogo.png";
 import fancyBackground from "../assets/images/fancyBackground.png";
 
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
+import { useRef} from 'react';
 
 
 const SearchIcon = () => (
@@ -40,11 +33,23 @@ const SearchIcon = () => (
   </svg>
 );
 
+const ingredientList = {
+  'Ingredients': [
+    "Chicken breast", "Butter", "Spaghetti", "Eggs", "Pancetta",
+    "Parmesan cheese", "Beef strips", "Soy sauce", "Bell pepper",
+    "Potatoes", "Carrots", "Green peas", "Coconut milk", "Curry powder",
+    "Cucumber", "Tomatoes", "Feta cheese", "Olives", "Oregano"
+  ]
+};
+
+
+
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [showIngredients, setShowIngredients] = useState(false);
   const navigate = useNavigate();
   const [recipes] = useState([]);
-  
+  const ingredientRef = useRef(null);
 
 
   const handleSearch = (e) => {
@@ -58,6 +63,19 @@ const HomePage = () => {
 
   const handleRecipeClick = (recipeName) => {
     navigate(`/recipe/:recipeName${encodeURIComponent(recipeName)}`);
+  };
+
+  const toggleList = () => {
+    setShowIngredients(true);
+  };
+
+  const handleOpenList = () => {
+    setShowIngredients(true);
+  };
+
+  const handleCloseList = () => {
+    setShowIngredients(false);
+    ingredientRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
 
@@ -84,7 +102,7 @@ const HomePage = () => {
           stress, no waste — just good food made easy.</div> 
       </div> 
 
-      <div className={styles.container}>
+      <div ref={ingredientRef} className={styles.container}>
         <div className={styles.ingredientSearch}>
           <div className={styles.searchTitleText}>Search Your Ingredient:</div>
           <br></br>
@@ -122,14 +140,60 @@ const HomePage = () => {
           </button>
         </div>
 
-        <div className={styles.moreIngredientTab}>More Ingredients</div>
-          <div className={styles.dropdownButton}>
-            <svg
-              width="70" height="30" viewBox="0 0 81 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="0.353553" y1="0.646447" x2="40.4035" y2="40.6964" stroke="black"/>
-              <line x1="39.6714" y1="40.7216" x2="79.7214" y2="0.671673" stroke="black"/>
+        <div className={styles.moreIngredientTab}>
+        {!showIngredients && (
+          <button onClick={toggleList}>More Ingredients</button>
+        )}
+
+        {showIngredients && (
+          <ul className={styles.ingredientList}>
+            {ingredientList['Ingredients'].map((item, index) => (
+              <li
+                key={index}
+                onClick={() => handleIngredientClick(item)}
+                className={styles.ingredientItem}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      
+      <div>
+        {!showIngredients && (
+          <button onClick={handleOpenList} className={styles.dropdownButton}>
+            {/* Down arrow */}
+            <svg width="70" height="30" viewBox="0 0 81 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0.35" y1="0.65" x2="40.4" y2="40.7" stroke="black"/>
+              <line x1="39.7" y1="40.7" x2="79.7" y2="0.67" stroke="black"/>
+            </svg>
+          </button>
+        )}
+          {showIngredients && (
+          <>
+            <button onClick={handleCloseList} className={styles.dropdownButton}>
+              {/* Up arrow */}
+              <svg width="70" height="30" viewBox="0 0 81 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="40" y1="0.35" x2="0" y2="40" stroke="black"/>
+                <line x1="40" y1="0.6" x2="80" y2="40" stroke="black"/>
               </svg>
-        </div>
+            </button>
+
+            <ul className={styles.ingredientList}>
+              {ingredientList['Ingredients'].map((item, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleIngredientClick(item)}
+                  className={styles.ingredientItem}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
 
         {/* AI Cooking Assistant */}
         <div className={styles.aiCookingAssistant}>

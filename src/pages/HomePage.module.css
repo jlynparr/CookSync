@@ -158,6 +158,26 @@
     background-color: none;
   }
 
+  .ingredientList {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.ingredientItem {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.ingredientItem:hover {
+  background-color: #f0f0f0;
+}
+
   .dropdownButton {
     display: flex;
     justify-content: center; /* or 'flex-start' or 'flex-end' */

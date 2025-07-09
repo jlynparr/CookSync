@@ -18,7 +18,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1; /* Push behind everything else */
+    z-index: -1; 
   }
 
   .textBackground {
@@ -52,8 +52,8 @@
   .ingredientSearch {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
+    justify-content: center; 
+    align-items: center;
     text-align: center;
   }
 
@@ -126,11 +126,18 @@
   
   .ingredient {
     display: flex;
-    flex-direction: column; /* stack vertically */
-    align-items: center;     /* center text under image */
+    flex-direction: column; 
+    align-items: center;     
     width: fit-content;
     background: none;
     border: none;
+  }
+
+  .ingredient:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.3);
   }
   
   .ingredientImage {
@@ -138,6 +145,12 @@
     height: 20vh;
     object-fit: cover;
     border-radius: 15vh;
+  }
+
+  .ingredientImage:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
   
   .ingredientLabel {
@@ -155,35 +168,142 @@
     display: flex;
     justify-content: center;
     margin: 5vh 0 2vh 0;
-    background-color: none;
+    background: none;
+  }
+
+  .moreIngredientsButton {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    font-family: Aleo, sans-serif;
+    font-size: 1.5em;
+    color: #000;
+    cursor: pointer;
+  }
+
+  .moreIngredientsButton:hover {
+    outline: none;
+    border: none;
+    box-shadow: none;
   }
 
   .ingredientList {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 equal columns */
-  gap: 8px;
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-}
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0;
+    list-style: none;
+    margin-top: 5vh;
+    justify-items: center; 
+    color: black;
+    font-family: Aleo, sans-serif;
+  }
 
-.ingredientItem {
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
+  .ingredientItem {
+    cursor: pointer;
+    padding: 1vb;
+    width: 50%;
+    font-size: 1.75rem;
+    background: none;
+  }
 
-.ingredientItem:hover {
-  background-color: #f0f0f0;
-}
+  .ingredientItem:hover {
+    background-color: none;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .dropdownContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+  }
 
   .dropdownButton {
     display: flex;
-    justify-content: center; /* or 'flex-start' or 'flex-end' */
+    justify-content: center;
     align-items: center;
-    position: relative;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
   }
+
+  .dropdownButton:focus,
+  .dropdownButton:active,
+  .dropdownButton:hover {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .dropdownContainer2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    border: 0.1rem solid transparent;
+    border-radius: 3vb;
+    width: 15vw;
+    padding: 2vh 0;
+    justify-self: center;
+    transition: border-color 0.2s ease;
+  }
+
+  .dropdownContainer2:hover {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    border: 0.124rem solid black;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    border-radius: 3vb;
+    width: 15vw;
+    padding: 2vh 0;
+    justify-self: center;
+    transition: border-color 0.2s ease;
+  }
+
+  .dropdownButton2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .dropdownButton2:focus,
+  .dropdownButton2:active,
+  .dropdownButton2:hover {
+    border: none; 
+    outline: none;
+    box-shadow: none;
+  }
+
+  .moreIngredientButtonArrow {
+    border: 0.1rem solid transparent; 
+    border-radius: 3vb;
+    width: 20vw;
+    padding-bottom: 3vh;
+    justify-self: center;
+    transition: border-color 0.2s ease;
+  }
+
+  .moreIngredientButtonArrow:hover {
+    border-color: black; 
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
   
   /*.image {
     width: 30%;

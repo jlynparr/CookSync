@@ -140,46 +140,26 @@ const HomePage = () => {
           </button>
         </div>
 
-        <div className={styles.moreIngredientTab}>
+        {/* More Ingredients Button and Dropdown */}
         {!showIngredients && (
-          <button onClick={toggleList}>More Ingredients</button>
+          <div className={styles.moreIngredientButtonArrow}>
+            <div className={styles.moreIngredientTab}>
+              <button className={styles.moreIngredientsButton} onClick={toggleList}>More Ingredients</button>
+            </div>
+            <div className={styles.dropdownContainer}>
+              <button onClick={handleOpenList} className={styles.dropdownButton}>
+                <svg width="70" height="30" viewBox="0 0 81 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0.35" y1="0.65" x2="40.4" y2="40.7" stroke="black" />
+                  <line x1="39.7" y1="40.7" x2="79.7" y2="0.67" stroke="black" />
+                </svg>
+              </button>
+            </div>
+          </div>
         )}
 
-        {showIngredients && (
-          <ul className={styles.ingredientList}>
-            {ingredientList['Ingredients'].map((item, index) => (
-              <li
-                key={index}
-                onClick={() => handleIngredientClick(item)}
-                className={styles.ingredientItem}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-      
-      <div>
-        {!showIngredients && (
-          <button onClick={handleOpenList} className={styles.dropdownButton}>
-            {/* Down arrow */}
-            <svg width="70" height="30" viewBox="0 0 81 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="0.35" y1="0.65" x2="40.4" y2="40.7" stroke="black"/>
-              <line x1="39.7" y1="40.7" x2="79.7" y2="0.67" stroke="black"/>
-            </svg>
-          </button>
-        )}
+
+
           {showIngredients && (
-          <>
-            <button onClick={handleCloseList} className={styles.dropdownButton}>
-              {/* Up arrow */}
-              <svg width="70" height="30" viewBox="0 0 81 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="40" y1="0.35" x2="0" y2="40" stroke="black"/>
-                <line x1="40" y1="0.6" x2="80" y2="40" stroke="black"/>
-              </svg>
-            </button>
-
             <ul className={styles.ingredientList}>
               {ingredientList['Ingredients'].map((item, index) => (
                 <li
@@ -191,9 +171,21 @@ const HomePage = () => {
                 </li>
               ))}
             </ul>
-          </>
-        )}
-      </div>
+          )}
+        
+           
+            {showIngredients && (
+              <div className={styles.dropdownContainer2}> 
+              <button onClick={handleCloseList} className={styles.dropdownButton2}>
+                {/* Up arrow */}
+                <svg width="70" height="30" viewBox="0 0 81 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="40" y1="0.35" x2="0" y2="40" stroke="black"/>
+                  <line x1="40" y1="0.6" x2="80" y2="40" stroke="black"/>
+                </svg>
+              </button>
+            </div>
+          )}
+       
 
         {/* AI Cooking Assistant */}
         <div className={styles.aiCookingAssistant}>

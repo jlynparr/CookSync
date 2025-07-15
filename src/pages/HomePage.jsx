@@ -57,8 +57,8 @@ const HomePage = () => {
     navigate(`/recipes?search=${encodeURIComponent(searchTerm)}`);
   };
 
-  const handleIngredientClick = (ingredient) => {
-    navigate(`/recipes?search=${encodeURIComponent(ingredient)}`);
+  const handleIngredientClick = (ingredientName) => {
+    navigate(`/results/${encodeURIComponent(ingredientName)}`);
   };
 
   const handleRecipeClick = (recipeName) => {
@@ -122,7 +122,7 @@ const HomePage = () => {
             <img src={garlicImage} alt="Garlic" className={styles.ingredientImage} />
             <p className={styles.ingredientLabel}>Garlic</p>
           </button>
-          <button className={styles.ingredient} onClick={() => handleIngredientClick('Olive Oil')}>
+          <button className={styles.ingredient} onClick={() => handleIngredientClick('Olive oil')}>
             <img src={oliveOilImage} alt="Olive Oil" className={styles.ingredientImage} />
             <p className={styles.ingredientLabel}>Olive Oil</p>
           </button>
@@ -130,7 +130,7 @@ const HomePage = () => {
             <img src={saltImage} alt="Salt" className={styles.ingredientImage} />
             <p className={styles.ingredientLabel}>Salt</p>
           </button>
-          <button className={styles.ingredient} onClick={() => handleIngredientClick('Pepper')}>
+          <button className={styles.ingredient} onClick={() => handleIngredientClick('Black pepper')}>
             <img src={pepperImage} alt="Pepper" className={styles.ingredientImage} />
             <p className={styles.ingredientLabel}>Pepper</p>
           </button>

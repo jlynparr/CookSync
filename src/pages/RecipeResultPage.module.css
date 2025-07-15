@@ -4,9 +4,9 @@
     position: relative;
     font-family: 'Aleo';
     background-color: #FDF8E1;
-    height: 235vh;
+    height: auto;
+    margin: 0 auto;
     color:#000;
-    padding-top: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,6 +17,7 @@
     font-size: 4em;
     color: #000;
     text-align: center;
+    margin-top: 10vh;
   }
 
   .recipeContainer {
@@ -33,19 +34,22 @@
     column-gap: 23svw;
   }
   
-  .recipeImage{
-    background-repeat: no-repeat;
+  .recipeImage {
+    width: 20vw;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     background-size: cover;
-    border-radius: 50vb;
-    grid-row: 1 / span 3;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  .recipeImage2{
-    background-repeat: no-repeat;
+  .recipeImage2 {
+    width: 20vw;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     background-size: cover;
-    border-radius: 50vb;
-    grid-row: 1 / span 3;
-    grid-column: 2;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .recipeTitle {
@@ -74,6 +78,7 @@
   .flippedArrow {
     transform: rotate(180deg);
     height: 7vh;
+    filter: drop-shadow(-3px -4px 2px rgba(0, 0, 0, .6));
   }
 
   .recipeLineBreak {
@@ -86,18 +91,23 @@
     opacity: 40%;
   }
 
-  .moreRecipesLink {
-    text-align: center;
-    font-family: Aleo, serif;
-    font-size: 2.5em;
-    margin-top: 25vh;
-    text-decoration: underline;
-  }
-
   /*More Recipes Section*/
+
+  .moreRecipesContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #3A5F26;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    padding-top: 10vh;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+  }
 
   .moreRecipes {
     background-color: #3A5F26;
+    width: 100%;
+    height: auto;
     padding-top: 10vh;
     padding-bottom: 10vh;
   }
@@ -114,107 +124,34 @@
   .recipeTitle2 {
     font-family: 'Nothing You Could Do';
     font-size: 2.75em;
+    color: #D9EC81;
     padding-bottom: 2vh;
     text-decoration: underline;
-    width: 40vw;
-    color: #D9EC81;
-    text-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
-    padding-left: 23%;
+    width: 60vw;
   }
-  
+
   .recipeDescription2 {
     font-family: 'Aleo';
     font-size: 2em;
-    width: 60vw;
     padding-bottom: 2vh;
-    text-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
-    padding-left: 23%;
+    width: 60vw;
+    color: white;
   }
   
   .goToRecipe2 {
     font-family: 'Nothing You Could Do';
     font-size: 3em;
     display: inline-flex;
-    width: 30vw;
+    width: 60vw;
     gap: 3vw;
     color: #FC7217;
-    text-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
-    padding-left: 25%;
-    margin-bottom: 13vh;
-  }
-
-  .flippedArrow2 {
-    transform: rotate(180deg);
-    height: 7vh;
-    filter: drop-shadow(-3px -4px 3px rgba(0, 0, 0, 1));
   }
 
   .moreRecipesLink {
     text-align: center;
     font-family: Aleo, serif;
-    font-size: 2.5em;
+    font-size: 3rem;
     margin-top: 10vh;
     text-decoration: underline;
-
-  }
-
-
-  @media screen and (min-width: 1440px) { 
-
-    .recipeImage{
-      height: 40vh;
-      width: 18vw;
-      margin-top: 5vh;
-    }
-    .recipeImage2{
-      height: 40vh;
-      width: 18vw;
-      margin-top: 5vh;
-    }
-    .moreRecipes{
-      margin-top: 50vh;  
-    }
-
-    .recipeDescription2 {
-        width: 64vw;
-        padding-left: 20%;
-    }
-    .recipeTitle2 {
-        padding-left: 20%;
-    }
-    .goToRecipe2 {
-        padding-left: 23%;
-    }
-  }
-
-
-  @media screen and (min-width: 1920px) {
-
-    .recipeImage{
-      height: 40vh;
-      width: 19vw;
-      margin-top: 0;
-    }
-    .recipeImage2{
-      height: 40vh;
-      width: 19vw;
-      margin-top: 0;
-    }
-    .moreRecipes{
-        margin-top: 0vh;  
-      }
-    .recipeDescription2 {
-        font-family: 'Aleo';
-        font-size: 2em;
-        width: 60vw;
-        padding-bottom: 2vh;
-        text-shadow: 3px 3px 4px rgba(0, 0, 0, 1);
-        padding-left: 23%;
-    }
-    .recipeTitle2 {
-        padding-left: 23%;
-    }     
-    .goToRecipe2 {
-        padding-left: 25%;
-    }
+    color: white;
   }

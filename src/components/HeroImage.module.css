@@ -1,51 +1,44 @@
-  /* FoodMain Background */
-  .foodMain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1; /* Push behind everything else */
-  }
+/* Wrapper that sets 100vh and anchors the absolute background */
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
 
-  .textBackground {
-    display: flex;
-    justify-content: center; /* horizontal centering */
-    align-items: center; 
-    position: relative;
-    top: 15vh;
-    background-color: rgba(5, 48, 7, 0.75);
-    border-radius: 25px;
-    margin: 0 auto 42vh;
-  }
-  
-  .titleText1 {
-    text-align: center; 
-    font-family: "Nothing You Could Do", cursive;
-    color: #D9EC81;
-    opacity: 1;
-  }
+/* Absolutely positioned full-screen background */
+.foodMain {
+  position: fixed; /* ✅ This is the key */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Push behind navbar */
+}
 
-  @media screen and (min-width: 1440px) {
-        
-    .textBackground {
-      width: 45vw;
-      height: 50vh;
-    }
-    .titleText1 {
-      font-size: 5em;
-    }
-  }
-  @media screen and (min-width: 1920px) {
-      
-    .textBackground {
-      width: 40vw;
-      height: 40vh;
-    }
-    .titleText1 {
-      font-size: 6em;
-    }
-  }
+/* Text content floats on top */
+.textBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(5, 48, 7, 0.75);
+  border-radius: 25px;
+  margin: 20vh auto;
+  padding: 2rem;
+  color: white;
+  z-index: 1;
+  position: relative;
+  width: 40vw;
+  height: 30vh;
+  max-width: 50vw;
+}
+
+.titleText1 {
+  text-align: center;
+  font-family: "Nothing You Could Do", cursive;
+  color: #D9EC81;
+  font-size: 6rem;
+}

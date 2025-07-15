@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/recipes" element={<AllRecipes />} />
         <Route path="/recipe/:recipeName" element={<RecipePage />} />
-        <Route path="/results" element={<RecipeResultPage />} />
+        <Route path="/results/:ingredientName" element={<RecipeResultPage />} />
         <Route path="/ai-search" element={<AISearchPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/create-account" element={<CreateAccountPopup />} />

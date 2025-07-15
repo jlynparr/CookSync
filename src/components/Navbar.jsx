@@ -63,44 +63,39 @@ const Navbar = () => {
     <>
       {/* NavBar Image */}
       <div className={styles.navBar}>
-      <div
-        className={styles.logo}
-        style={{ backgroundImage: `url(${logo})` }}
-      ></div>
-      <Link to="/" className={styles.navOption}>Home</Link>
-      <div className={styles.spacer}></div>
-      <Link to="/recipes"  className={styles.navOption}>Recipes</Link>
-      <div className={styles.spacer}></div>
-      <Link to="/about"  className={styles.navOption}>About</Link>
-      <Link to="/create-account"><button className={styles.signUp}>Sign Up</button></Link>
-      <button className={styles.logIn}>Log In</button>
+        <div className={styles.logo} style={{ backgroundImage: `url(${logo})` }}></div>
+        <Link to="/" className={styles.navOption}>Home</Link>
+        <Link to="/recipes"  className={styles.navOption}>Recipes</Link>
+        <Link to="/about"  className={styles.navOption}>About</Link>
+        <Link to="/create-account"><button className={styles.signUp}>Sign Up</button></Link>
+        <Link to="/login" ><button className={styles.logIn}>Log In</button></Link>
 
-        <div className={styles.search}>
-          <button
-            onClick={toggleSearch}
-            aria-label="Toggle search"
-            className={styles.searchIconButton}
-          >
-            <SearchIcon />
-          </button>
+          <div className={styles.search}>
+            <button
+              onClick={toggleSearch}
+              aria-label="Toggle search"
+              className={styles.searchIconButton}
+            >
+              <SearchIcon />
+            </button>
 
-          {searchOpen && (
-            <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
-              <button className={styles.closeButton} onClick={closeSearch}>
-                <CloseIcon />
-              </button>
-              <input
-                type="text"
-                value={searchTerm}
-                placeholder="Search recipes..."
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className={styles.searchInput}
-                autoFocus
-              />
-              <button type="submit" className={styles.submitButton}>Go</button>
-            </form>
-          )}
-        </div>
+            {searchOpen && (
+              <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
+                <button className={styles.closeButton} onClick={closeSearch}>
+                  <CloseIcon />
+                </button>
+                <input
+                  type="text"
+                  value={searchTerm}
+                  placeholder="Search recipes..."
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className={styles.searchInput}
+                  autoFocus
+                />
+                <button type="submit" className={styles.submitButton}>Go</button>
+              </form>
+            )}
+          </div>
       </div>
       </>
   );

@@ -1,40 +1,34 @@
-.container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  top: 50vh;
-  background-color: #FFFCF5;
-}
-
 .navBar {
   width: 100vw; /* full viewport width */
-  height: 18vh;
-  display: flex;
+  height: auto;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 1.5fr 1.5fr 1fr;
+  gap: 1vw;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
   font-family: "Julius Sans One", sans-serif;
+  position: relative;
   font-size: 2rem;
   color: #000;
   box-sizing: border-box;
-  position: relative;
-  top: 0vh;
   background-color: rgba(255, 252, 245, 0.5);
+  z-index: 10;
 }
 
 .navOption {
   color: #000;
-}
-
-.spacer {
-  width: 2vw;
+  text-align: center;
+  width: 10vw;
+  margin-left: 2vw;
 }
 
 .logo {
-  position: relative;
-  z-index: 1;
   background-size: cover;
-  margin-right: 4vw;
+  background-position: center;
+  width: auto;
+  height: 18vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .signUp {
@@ -45,8 +39,7 @@
   background-color: #FFFCF5;
   position: relative;
   color: #3A5F26;
-  margin-right: 4vw;
-  margin-left: -2vw;
+  width: 13vw;
 }
 
 .logIn {
@@ -57,28 +50,32 @@
   background-color: #3A5F26;
   position: relative;
   color: #D9EC81;
-  margin-right: 4vw;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  position: relative;
+  width: 13vw;
 }
 
  .searchIconButton {
   background-color: transparent;
-  border: none;
   padding: 0;
   cursor: pointer;
-  outline: none; /* removes focus ring */
+  outline: none;
+  display: flex;
+  align-items: center;
+  width: 85px;
+  height: 85px;
+  margin-right: 2vw;
 }
 
 .searchIconButton:focus-visible {
-  outline: 2px solid #FC7217; /* or any visible color */
+  outline: 2px solid #FC7217;
   outline-offset: 2px;
+  border: none;
+}
+
+.searchIconButton:hover {
+  background-color: none;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  border: none;
 }
 
 .searchForm {
@@ -127,56 +124,3 @@
   box-shadow: 2px 2px 5px black;
 }
 
-@media screen and (min-width: 1440px) {
-        
-  .signUp {
-    font-size: .75em;
-    left: 7vw;
-    top: -2vh;
-  }
-  .logIn {
-    font-size: .75em;
-    left: 2vw;
-    top: -2vh;
-  }
-  .searchIcon {
-    position: relative;
-    width: 70px;
-    height: 70px;
-    top: -2vh;
-    left: -3vw;
-  }
-  .logo {
-    top: 0vh;
-    left: 0vw;
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media screen and (min-width: 1920px) {
-      
-  .signUp {
-    left: 10vw;
-    top: -2vh;
-    font-size: 1em;
-  }
-  .logIn {
-    left: 4vw;
-    top: -2vh;
-    font-size: 1em;
-  }
-  .searchIcon {
-    position: relative;
-    width: 85px;
-    height: 85px;
-    left: -2vw;
-    top: -2.5vh;
-  }
-  .logo {
-    top: 0vh;
-    left: 0vw;
-    width: 250px;
-    height: 250px;
-  }
-}

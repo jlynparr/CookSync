@@ -1,11 +1,12 @@
 .letterRange {
     font-family: "Nothing You Could Do", cursive;
-    font-size: 2em;
+    font-size: 3rem;
     color: black;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 8vw;
+    padding-top: 15vh;
 }
 
 .mainTitle {

@@ -141,50 +141,53 @@ setFilteredRecipes(sorted);
       <Navbar />
       <HeroImage image={waffleImage} title="Recipes A-Z" />
 
-      <div className={styles.letterRange}>
-      {Object.keys(letterRanges).map(range => (
-      <h3 key={range} onClick={() => handleRangeFilter(range)}>{range}</h3>
-      ))}
-      </div>
+      <div style={{ backgroundColor: '#FDF8E1', height: 'auto' }}>
+            <div className={styles.letterRange}>
+            {Object.keys(letterRanges).map(range => (
+            <h3 key={range} onClick={() => handleRangeFilter(range)}>{range}</h3>
+            ))}
+            </div>
 
 
-      {/* 🔍 Search Input */}
-      <div className={styles.searchContainer}>
-        <input
-          type="text"
-          placeholder="Search recipes..."
-          value={searchQuery}
-          onChange={handleSearch}
-          className={styles.searchInput}
-        />
-      </div>
+            {/* 🔍 Search Input */}
+            <div className={styles.searchContainer}>
+              <input
+                type="text"
+                placeholder="Search recipes..."
+                value={searchQuery}
+                onChange={handleSearch}
+                className={styles.searchInput}
+              />
+            </div>
 
+            <div>
+              <h1 className={styles.mainTitle}>Recipes</h1>
+            </div>
+
+            {/* 📋 Render Filtered Recipes */}
       <div>
-        <h1 className={styles.mainTitle}>Recipes</h1>
+        <h2>Recipes with "{searchTerm}"</h2>
+        <div className={styles.recipeList}>
+          {recipes.map((recipe) => (
+            <div key={recipe.id} className={styles.recipeCard}>
+              <h3 className={styles.recipeTitle}>{recipe.name}</h3>
+              <p className={styles.recipeDescription}>{recipe.description}</p>
+              <div className={styles.goToRecipe}>Go to recipe →</div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* 📋 Render Filtered Recipes */}
-<div>
-  <h2>Recipes with "{searchTerm}"</h2>
-  <div className={styles.recipeList}>
-    {recipes.map((recipe) => (
-      <div key={recipe.id} className={styles.recipeCard}>
-        <h3 className={styles.recipeTitle}>{recipe.name}</h3>
-        <p className={styles.recipeDescription}>{recipe.description}</p>
-        <div className={styles.goToRecipe}>Go to recipe →</div>
-      </div>
-    ))}
-  </div>
-</div>
 
+            <div className={styles.pageChange}>
+              <div>Prev Page</div>
+              <div>1 2 3 4 5 6</div>
+              <div>Next Page</div>
+            </div>
 
-      <div className={styles.pageChange}>
-        <div>Prev Page</div>
-        <div>1 2 3 4 5 6</div>
-        <div>Next Page</div>
-      </div>
+            <Footer />
 
-      <Footer />
+      </div>      
     </>
   );
 };

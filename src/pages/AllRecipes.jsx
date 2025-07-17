@@ -31,6 +31,9 @@ const AllRecipes = () => {
   const params = new URLSearchParams(search);
   const searchTerm = params.get('search') || '';
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedRange, setSelectedRange] = useState(null);
+
   useEffect(() => {
     async function fetchRecipes() {
       const { data, error } = await supabase.from('recipes').select('*');
@@ -109,6 +112,10 @@ const AllRecipes = () => {
     }
   }, [searchTerm]);
 
+  useEffect(() => {
+  setCurrentPage(1);
+    }, [searchQuery, selectedRange]); 
+
   if (loading) return <div>Loading recipes...</div>;
   if (error) return <div>Error loading recipes: {error}</div>;
   if (!recipes.length) return <div>No recipes found for "{searchTerm}".</div>;
@@ -123,17 +130,46 @@ const AllRecipes = () => {
   };
 
   const handleRangeFilter = (rangeKey) => {
-  const allowedLetters = letterRanges[rangeKey];
-  const filtered = recipes.filter(recipe => {
-    const firstChar = recipe.name.charAt(0).toUpperCase();
-    return allowedLetters.includes(firstChar);
-  });
-  const sorted = filtered.sort((a, b) =>
-  a.name.localeCompare(b.name)
-);
-setFilteredRecipes(sorted);
+    setSelectedRange(rangeKey);
+    const allowedLetters = letterRanges[rangeKey];
+    console.log("Clicked:", rangeKey); 
+    const filtered = recipes.filter(recipe => {
+      const firstChar = recipe.name.charAt(0).toUpperCase();
+      console.log("Allowed Letters:", allowedLetters);
+      return allowedLetters.includes(firstChar);
+    });
+    const sorted = filtered.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  setFilteredRecipes(sorted);
+  };
 
-};
+  const resetFilters = () => {
+    setSelectedRange(null);
+    setSearchQuery('');
+    setFilteredRecipes(recipes);
+  }
+
+  const recipesPerPage = 3;
+  const indexOfLastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+  const currentRecipes = filteredRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
+  const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(prev => prev + 1);
+  };
+
+  const goToPrevPage = () => {
+    if (currentPage > 1) setCurrentPage(prev => prev - 1);
+  };
+
+  const goToPage = (page) => {
+    setCurrentPage(page);
+  };
+
+  
 
 
   return (
@@ -142,12 +178,19 @@ setFilteredRecipes(sorted);
       <HeroImage image={waffleImage} title="Recipes A-Z" />
 
       <div style={{ backgroundColor: '#FDF8E1', height: 'auto' }}>
+        
+            <div>
+              <h1 className={styles.mainTitle}>Recipes {selectedRange || "A-Z"}</h1>
+            </div>
             <div className={styles.letterRange}>
-            {Object.keys(letterRanges).map(range => (
-            <h3 key={range} onClick={() => handleRangeFilter(range)}>{range}</h3>
-            ))}
+              {Object.keys(letterRanges).map(range => (
+              <button key={range} onClick={() => handleRangeFilter(range)} className={styles.rangeButtons}>{range}</button>
+              ))}
             </div>
 
+            <div className={styles.allRecipesContainer}>  
+              <button className={styles.allRecipes} onClick={() => resetFilters()}>Show All Recipes</button>
+            </div>
 
             {/* 🔍 Search Input */}
             <div className={styles.searchContainer}>
@@ -160,15 +203,13 @@ setFilteredRecipes(sorted);
               />
             </div>
 
-            <div>
-              <h1 className={styles.mainTitle}>Recipes</h1>
-            </div>
-
             {/* 📋 Render Filtered Recipes */}
       <div>
-        <h2>Recipes with "{searchTerm}"</h2>
+        {searchTerm && (
+          <h2 className={styles.recipeShown}>Recipes with "{searchTerm}"</h2>
+        )}
         <div className={styles.recipeList}>
-          {recipes.map((recipe) => (
+          {currentRecipes.map((recipe) => (
             <div key={recipe.id} className={styles.recipeCard}>
               <h3 className={styles.recipeTitle}>{recipe.name}</h3>
               <p className={styles.recipeDescription}>{recipe.description}</p>
@@ -180,10 +221,25 @@ setFilteredRecipes(sorted);
 
 
             <div className={styles.pageChange}>
-              <div>Prev Page</div>
-              <div>1 2 3 4 5 6</div>
-              <div>Next Page</div>
+              <div onClick={goToPrevPage} style={{ cursor: 'pointer' }}>Prev Page</div>
+              <div>
+                {[...Array(totalPages)].map((_, i) => (
+                  <button
+                    key={i + 1}
+                    onClick={() => goToPage(i + 1)}
+                    style={{
+                      margin: '0 4px',
+                      fontWeight: currentPage === i + 1 ? 'bold' : 'normal',
+                    }}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
+              <div onClick={goToNextPage} style={{ cursor: 'pointer' }}>Next Page</div>
             </div>
+
+
 
             <Footer />
 

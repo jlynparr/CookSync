@@ -14,7 +14,7 @@
 
   .popularRecipeText {
     font-family: "Julius Sans One", sans-serif;
-    font-size: 4em;
+    font-size: clamp(2rem, 3vw, 3em);
     color: #000;
     text-align: center;
     margin-top: 10vh;
@@ -72,7 +72,7 @@
 
   .recipeTitle {
     font-family: 'Nothing You Could Do';
-    font-size: 2.75em;
+    font-size: clamp(1.5rem, 2vw, 2.5em);
     padding-bottom: 2vh;
     text-decoration: underline;
     width: 40vw;
@@ -81,7 +81,7 @@
   
   .recipeDescription {
     font-family: 'Aleo';
-    font-size: 2em;
+    font-size: clamp(1rem, 2vw, 2.5em);
     width: 40vw;
     padding-bottom: 2vh;
     color: black;
@@ -89,7 +89,7 @@
   
   .goToRecipe {
     font-family: 'Nothing You Could Do';
-    font-size: 3em;
+    font-size: clamp(1.5rem, 2vw, 2.5em);
     display: inline-flex;
     width: 30vw;
     gap: 3vw;
@@ -140,7 +140,7 @@
 
   .moreRecipesTitle {
     font-family: "Julius Sans One", sans-serif;
-    font-size: 4em;
+    font-size: clamp(2rem, 3vw, 3em);
     color: #D9EC81;
     text-shadow: 4px 4px 2px rgba(0, 0, 0, 1);
     text-align: center;
@@ -149,7 +149,7 @@
 
   .recipeTitle2 {
     font-family: 'Nothing You Could Do';
-    font-size: 2.75em;
+    font-size: clamp(1.5rem, 2vw, 2.5em);
     color: #D9EC81;
     padding-bottom: 2vh;
     text-decoration: underline;
@@ -158,7 +158,7 @@
 
   .recipeDescription2 {
     font-family: 'Aleo';
-    font-size: 2em;
+    font-size: clamp(1rem, 2vw, 2.5em);
     padding-bottom: 2vh;
     width: 60vw;
     color: white;
@@ -166,7 +166,7 @@
   
   .goToRecipe2 {
     font-family: 'Nothing You Could Do';
-    font-size: 3em;
+    font-size: clamp(1.5rem, 2vw, 2.5em);
     display: inline-flex;
     width: 60vw;
     gap: 3vw;
@@ -181,8 +181,64 @@
   .moreRecipesLink {
     text-align: center;
     font-family: Aleo, serif;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 2vw, 2.5em);
     margin-top: 10vh;
     text-decoration: underline;
     color: white;
+  }
+
+
+  @media (max-width: 768px) {
+    .recipeContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      row-gap: 2vh;
+      margin-top: -5vh;
+    }
+
+    .recipeContainer2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      row-gap: 2vh;
+      flex-direction: column-reverse;
+      margin-top: -5vh;
+    }
+
+    .recipeImage{
+      grid-row: 1;
+      grid-column: auto;
+      width: 40vw;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      margin-bottom: 2vh;
+    }
+
+    .recipeImage2 {
+      order: -1; 
+      grid-column: auto !important;
+      grid-row: auto !important;
+      width: 40vw;
+      margin-bottom: 2vh;
+    }
+
+    .recipeTitle,
+    .recipeDescription,
+    .goToRecipe {
+      width: 80vw;
+      justify-content: center;
+    }
+
+    .recipeLineBreak {
+      margin-top: 10vh;
+      height: .2vh;
+      border-width: 0;
+      width: 60vw;
+      color:#333;
+      background-color: #333;
+      opacity: 40%;
+    }
   }

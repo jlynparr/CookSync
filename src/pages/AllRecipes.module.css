@@ -1,6 +1,6 @@
 .letterRange {
     font-family: "Nothing You Could Do", cursive;
-    font-size: 3rem;
+    font-size: clamp(1rem, 3vw, 3rem);
     color: black;
     display: flex;
     justify-content: center;
@@ -29,12 +29,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5vh;;
+    margin-top: 5vh;
 }
 
 .allRecipes {
     font-family: "Nothing You Could Do", cursive;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
     color: #D9EC81;
     background: rgba(5, 48, 7, 0.8);
     border: solid 2px #D9EC81;
@@ -50,17 +50,41 @@
 .mainTitle {
     font-family: "Julius Sans One", sans-serif;
     color: black;
-    font-size: 3em;
+    font-size: clamp(2rem, 3vw, 3rem);
     text-align: center;
     padding-top: 15vh;
-    padding-bottom: 5vh;;
+    padding-bottom: 5vh;
 }
 
 .chosenRange {
     font-family: "Julius Sans One", sans-serif;
     color: black;
-    font-size: 3em;
+    font-size: clamp(1.5rem, 3vw, 3rem);
     text-align: center;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.searchInput {
+    border: solid #FC7217;
+    background-color: white;
+    font-family: 'Aleo', serif;
+    font-size: clamp(1rem, 3vw, 3rem);
+    padding: 1vh 2vw;
+    border-radius: 50vb;
+    width: 25vw;
+    height: 5vh;
+    color: black;
+}
+
+.searchInput::placeholder {
+    color: rgba(5, 48, 7, 0.8);
 }
 
 .recipeShown {
@@ -68,20 +92,20 @@
 }
 
 
-
 .recipeTitle {
     font-family: "Nothing You Could Do", cursive;
     color: black;
-    font-size: 2.5em;
+    font-size: clamp(1.5rem, 3vw, 3rem);
     text-shadow: 3px 3px 4px rgba(0, 0, 0, .5);
     padding-left: 20%;
     text-decoration: underline;
+    margin-top: 8vh;
 }
 
 .recipeDescription {
     font-family: Aleo, serif;
     color: black;
-    font-size: 2em;
+    font-size: clamp(1rem, 3vw, 3rem);
     width: 60vw;
     padding-left: 20%;
 }
@@ -89,10 +113,10 @@
 
 .goToRecipe {
     font-family: 'Nothing You Could Do';
-    font-size: 3em;
+    font-size: clamp(1.5rem, 3vw, 3rem);
     color: #FC7217;
     display: inline-flex;
-    width: 30vw;
+    width: auto;
     gap: 3vw;
     text-shadow: 1px 3px 3px rgba(0, 0, 0, .8);
     padding-left: 22%;
@@ -106,10 +130,11 @@
 
 .pageChange {
     font-family: Aleo, serif;
-    font-size: 1.5em;
+    font-size: clamp(.75rem, 2vw, 2rem);
     color:black;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 3vw;
     margin-top: 10vh;
     margin-bottom: 5vh;

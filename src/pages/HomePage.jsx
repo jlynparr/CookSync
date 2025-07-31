@@ -94,9 +94,7 @@ const HomePage = () => {
 
       <div className={styles.textBackground}>
         <div className={styles.titleText1}>Turn Ingredients</div>
-        <br></br>
         <div className={styles.titleText2}>Into Inspiration</div>
-        <br></br>
         <div className={styles.titleText3}>Got a few things in your fridge? Let 
           our smart recipe finder whip up delicious meal ideas in seconds. No 
           stress, no waste — just good food made easy.</div> 
@@ -107,8 +105,16 @@ const HomePage = () => {
           <div className={styles.searchTitleText}>Search Your Ingredient:</div>
           <br></br>
           <form className={styles.searchForm} onSubmit={handleSearch}>
-          <input className={styles.searchBar} type="text"value={searchTerm} placeholder="Type your ingredients..." onChange={(e) => setSearchTerm(e.target.value)}></input>
-          <button className={styles.searchButton} type="submit">Search</button>
+            <input
+              className={styles.searchBar}
+              type="text"
+              value={searchTerm}
+              placeholder="Type your ingredients..."
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button className={styles.searchButton} type="submit">
+              Search
+            </button>
           </form>
           <div className={styles.middleText}>Or</div>
           <div className={styles.ingredientChoiceTitle}>Choose a Common Ingredient:</div>
@@ -194,8 +200,18 @@ const HomePage = () => {
             Tell us what ingredients you have on hand and we’ll cook up recipe
             ideas just for you.
           </div>
-          <input className={styles.searchBar2}placeholder="Ask AI a cooking question..."></input>
-          <button className={styles.searchButton2}>AI Search</button>
+          <form className={styles.searchForm2} onSubmit={handleSearch}>
+            <input
+              className={styles.searchBar2}
+              type="text"
+              value={searchTerm}
+              placeholder="Ask AI a cooking question..."
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button className={styles.searchButton2} type="submit">
+              AI Search
+            </button>
+          </form>
         </div>
         
 

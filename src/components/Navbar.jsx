@@ -63,7 +63,9 @@ const Navbar = () => {
     <>
       {/* NavBar Image */}
       <div className={styles.navBar}>
-        <div className={styles.logo} style={{ backgroundImage: `url(${logo})` }}></div>
+        <div className={styles.logo}>
+          <img src={logo} alt="CookSync Logo" className={styles.logoImage} />
+        </div>
         <Link to="/" className={styles.navOption}>Home</Link>
         <Link to="/recipes"  className={styles.navOption}>Recipes</Link>
         <Link to="/about"  className={styles.navOption}>About</Link>

@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import styles from "./AllRecipes.module.css";
 import waffleImage from "../assets/images/waffles.jpg";
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const letterRanges = {
@@ -209,11 +210,13 @@ const AllRecipes = () => {
           <h2 className={styles.recipeShown}>Recipes with "{searchTerm}"</h2>
         )}
         <div className={styles.recipeList}>
-          {currentRecipes.map((recipe) => (
+          {currentRecipes.map((recipe) => ( 
             <div key={recipe.id} className={styles.recipeCard}>
+              <Link to={`/recipe/${encodeURIComponent(recipe.name)}`}> 
               <h3 className={styles.recipeTitle}>{recipe.name}</h3>
               <p className={styles.recipeDescription}>{recipe.description}</p>
               <div className={styles.goToRecipe}>Go to recipe →</div>
+              </Link>
             </div>
           ))}
         </div>

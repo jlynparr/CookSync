@@ -8,7 +8,7 @@
 
 /* Absolutely positioned full-screen background */
 .foodMain {
-  position: fixed; /* ✅ This is the key */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
@@ -16,7 +16,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -1; /* Push behind navbar */
+  z-index: -1; 
 }
 
 /* Text content floats on top */
@@ -32,7 +32,7 @@
   z-index: 1;
   position: relative;
   width: 40vw;
-  height: 30vh;
+  height: auto;
   max-width: 50vw;
 }
 
@@ -41,4 +41,5 @@
   font-family: "Nothing You Could Do", cursive;
   color: #D9EC81;
   font-size: 6rem;
+  font-size: clamp(1rem, 5vw, 6rem);
 }

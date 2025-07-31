@@ -2,56 +2,62 @@
 
   .footerImage {
     width: 100%;
-    height: 140vh;
+    min-height: 100vh; /* adjust as needed */
+    background-image: url('/your/path/to/footer-image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 20vh;
+    background-position: center;
   }
 
   .footer {
-    height: 46vh;
+    height: auto;
     background-color: #04050A;
-    margin-top: 0;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     display: grid;
     grid-template-columns: 20vw 5vw 10vw 15vw 20vw;
     justify-content: center;
     font-family: Aleo, serif;
+    column-gap: 4vw;
   }
 
   .logoCopyIcons {
     grid-column: 1;
     grid-row: 1 / span 2;
-    font-size: 1.9em;
-    line-height: 10vh;
+    font-size: clamp(1rem, 2vw, 2rem);
+    width: 20vw;
   }
   
   .bottomLogo {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 18vh;
-    width: 13vw;
+    width: 15vw;
+    aspect-ratio: 2 / 1;
     border-radius: 6vb;
     overflow: hidden;
+    margin-top: 13vh;
+    margin-bottom: 2vh;
   }
 
   .linkLines {
     height: 8vh;
     width: .3vw;
-    margin-bottom: 3.7vh;
-    margin-top: 2vh;
+    margin: 5vh 5vw;
     border-radius: .3vb;
     background-color: #FFF;
-    grid-column: 2;
-    grid-row: 1 / span 3;
   }
 
   .bottomLinks {
-    grid-column: 3;
-    grid-row: 1 / span 3;
     color: #FFF;
-    font-size: 2.8em;
-    line-height: 12vh;
+    font-size: clamp(1rem, 2vw, 2rem);
+    border: solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4.5vh;
+    margin-left: 2vw;
+    height: 8vh;
   }
 
   .lineSplit {
@@ -60,16 +66,15 @@
     width: .3vw;
     border-radius: .3vb;
     background-color: #FFF;
-    margin-top: -5vh;
   }
 
   /* Social Media Icons */
   .socialMediaIcons {
     grid-column: 5;
     grid-row: 1 / span 2;
-    font-size: 3em;
+    font-size: clamp(1rem, 2vw, 2rem);
     text-align: center;
-    margin-top: 2vh;
+    margin-top: 12vh;
     line-height: 10vh;
   }
   
@@ -83,18 +88,4 @@
     width: 4vw;
     height: 5vh;
     object-fit: contain;
-  }
-
-  @media screen and (min-width: 1440px) {
-
-    .footerImage {
-      margin-top: 0vh;
-    }
-  }
-  
-  @media screen and (min-width: 1920px) {
-
-    .footerImage {
-      margin-top: 0vh;
-    }
   }

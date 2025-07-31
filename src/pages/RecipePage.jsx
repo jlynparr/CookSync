@@ -6,7 +6,6 @@ import { supabase } from '../supabaseClient';
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
-import hummusImage from "../assets/images/hummus.jpg";
 import timeIcon from "../assets/images/timeIcon.png";
 import diffIcon from "../assets/images/diffIcon.png";
 import servingIcon from "../assets/images/servingIcon.png";

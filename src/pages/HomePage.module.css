@@ -3,14 +3,14 @@
 .container {
     position: relative;
     width: 100%;
-    height: 100vh;
-    top: 50vh;
+    height: auto;
+    top: 10vh;
     background-color: #FFFCF5;
   }
 
   /* FoodMain Background */
   .foodMain {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -22,31 +22,40 @@
   }
 
   .textBackground {
-    position: relative;
-    top: 15vh;
+    display: flex;
+    flex-direction: column;
     background-color: rgba(5, 48, 7, 0.75);
-    border-radius: 25px;
-    margin: 0 auto;
+    border-radius: 5vb;
+    margin: 5vh auto 0 auto;
+    height: auto;
+    width: 50vw;
   }
   
   .titleText1 {
-    position: relative;
     font-family: "Nothing You Could Do", cursive;
     color: #D9EC81;
     opacity: 1;
+    padding-top: 3vh;
+    padding-left: 4vw;
+    font-size: clamp(1rem, 5vw, 6rem);
   }
 
   .titleText2 {
-    position: relative;
     font-family: "Nothing You Could Do", cursive;
     color: #FC7217;
     opacity: 1;
+    padding-left: 10vw;
+    margin-top: clamp(min(0vh, -1rem), -1vh, max(-5vh, -2rem));
+    font-size: clamp(1rem, 5vw, 6rem);
   }
 
   .titleText3 {
-    position: relative;
     font-family: Aleo;
     text-align: center;
+    justify-items: center;
+    font-size: clamp(1rem, 2vw, 2rem);
+    width: auto;
+    padding: 0 5vw 5vh 5vw; 
   }
 
   .ingredientSearch {
@@ -59,61 +68,71 @@
 
   .searchTitleText {
     font-family: "Julius Sans One", sans-serif;
-    font-size: 2em;
+    font-size: clamp(1.5rem, 3vw, 3rem);
     color: #333;
     margin-bottom: 3vh;
+    margin-top: 10vh;
   }
 
   .searchForm {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 60vw;
+    position: relative;
   }
 
+
   .searchBar {
+    flex: 1;
     background-color: rgba(58, 95, 38, .85);
     border-style: solid;
     border-color: #FC7217;
     border-width: .2rem;
     border-radius: 50px 0 0 50px;
     font-family: Aleo;
-    font-size: 2rem;
-    padding-left: 2vw;
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    padding: 1rem 2rem;
+    color: white;
+    height: 70px;
+    width: 60vw;
     box-sizing: border-box;
-    color:white;
-    height: 10vh;
+  }
+
+  .searchBar::placeholder {
+    color: white;
+    opacity: 0.9;
+  }
+
+  .searchBar:focus {
     outline: none;
+    border-color: #FC7217;
   }
 
   .searchButton {
-    background-color: rgba(252, 114, 23);
-    border-style: solid;
-    border-color: #FC7217;
-    border-width: .2rem;
+    background-color: #FC7217;
+    border: none;
     border-radius: 0 50px 50px 0;
     font-family: Aleo;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-    box-sizing: border-box;
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    padding: 1rem 2rem;
+    height: 70px;
+    cursor: pointer;
+    color: white;
   }
 
   .middleText {
     font-family: "Julius Sans One", sans-serif;
-    font-size: 2em;
+    font-size: clamp(1rem, 2vw, 2rem);
     color: #333;
-    position: relative;
-    top: -1vh;
+    margin: 5vh auto;
   }
   
   .ingredientChoiceTitle {
     font-family: "Julius Sans One", sans-serif;
-    font-size: 2em;
+    font-size: clamp(1.25rem, 2vw, 2rem);
     color: #333;
-    position: relative;
-    top: 2vh;
     margin-bottom: 10vh;
   }
 
@@ -122,6 +141,7 @@
     justify-content: center;
     gap: 5vw;
     flex-wrap: wrap;
+    padding: 0 5vw
   }
   
   .ingredient {
@@ -144,7 +164,7 @@
     width: 20vh;
     height: 20vh;
     object-fit: cover;
-    border-radius: 15vh;
+    border-radius: 15vb;
   }
 
   .ingredientImage:hover {
@@ -155,7 +175,8 @@
   
   .ingredientLabel {
     margin-top: 2vh;
-    font-size: 2em;
+    margin-bottom: 8vh;
+    font-size: clamp(1.25rem, 2vw, 2rem);
     color: #333;
     text-align: center;
     font-family: Aleo, sans-serif;
@@ -163,7 +184,7 @@
 
   .moreIngredientTab {
     color:#000;
-    font-size: 1.5em;
+    font-size: clamp(1.25rem, 2vw, 2rem);
     font-family: Aleo, sans-serif;
     display: flex;
     justify-content: center;
@@ -174,12 +195,12 @@
   .moreIngredientsButton {
     background: none;
     border: none;
-    padding: 0;
+    padding: 1vh 0;
     margin: 0;
     outline: none;
     box-shadow: none;
     font-family: Aleo, sans-serif;
-    font-size: 1.5em;
+    font-size: clamp(1.25rem, 2vw, 2rem);
     color: #000;
     cursor: pointer;
   }
@@ -193,20 +214,21 @@
   .ingredientList {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 0;
-    list-style: none;
+    list-style: unset;
     margin-top: 5vh;
     justify-items: center; 
     color: black;
     font-family: Aleo, sans-serif;
+    text-align: center;
   }
 
   .ingredientItem {
     cursor: pointer;
     padding: 1vb;
-    width: 50%;
-    font-size: 1.75rem;
+    width: auto;
+    font-size: clamp(1rem, 1.5vw, 2rem);
     background: none;
+    
   }
 
   .ingredientItem:hover {
@@ -230,7 +252,7 @@
     border: none;
     outline: none;
     box-shadow: none;
-    padding: 0;
+    padding: 1vh 0;
     margin: 0;
     cursor: pointer;
   }
@@ -246,7 +268,7 @@
   .dropdownContainer2 {
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+    margin: 2vh 0;
     border: 0.1rem solid transparent;
     border-radius: 3vb;
     width: 15vw;
@@ -258,8 +280,8 @@
   .dropdownContainer2:hover {
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
-    border: 0.124rem solid black;
+    margin: 2vh 0;
+    border: 0.1rem solid black;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     border-radius: 3vb;
     width: 15vw;
@@ -293,7 +315,7 @@
     border: 0.1rem solid transparent; 
     border-radius: 3vb;
     width: 20vw;
-    padding-bottom: 3vh;
+    padding: 3vh;
     justify-self: center;
     transition: border-color 0.2s ease;
   }
@@ -304,67 +326,78 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
   }
 
-  
-  /*.image {
-    width: 30%;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-  }
-    */
-
       /* AI Cooking Assistant */
   .aiCookingAssistant {
-    position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color: #053007;
     color: #FFF;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 2vh;
-    margin-top: 13vh;
   }
 
   .aiTitle {
     font-family: "Julius Sans One", sans-serif;
-    font-size: 5em;
-    position: relative;
-    top: 20vh;
+    font-size: clamp(3rem, 5vw, 5rem);
+    margin: 15vh 0 3vh 0;
+    text-align: center;
+    line-height: 1;
   }
 
   .aiDescription {
     font-family: Aleo, serif;
-    font-size: 2em;
-    position: relative;
-    top: 20vh;
+    font-size: clamp(1rem, 2vw, 2rem);
     width: 40vw;
     text-align: center;
   }
 
+  .searchForm2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 60vw;
+    margin: 5vh auto 15vh auto;
+  }
+
   .searchBar2 {
-    background-color: #3A5F26;
-    opacity: 85%;
+    flex: 1;
+    background-color: rgba(58, 95, 38, .85);
     border-style: solid;
     border-color: #FC7217;
-    border-width: .5vb;
-    border-radius: 50vb;
+    border-width: .2rem;
+    border-radius: 50px 0 0 50px;
     font-family: Aleo;
-    font-size: 2em;
-    padding-left: 2vw;
-    height: 9vh;
-    width: 50vw;
-    position: relative;
-    top: 25vh;
+    font-size: clamp(1rem, 2vw, 2rem);
+    padding: 1rem 2rem;
+    color: white;
+    height: 70px;
+    width: 60vw;
+    box-sizing: border-box;
+  }
+
+  .searchBar2::placeholder {
+    color: white;
+    opacity: 0.9;
+  }
+
+  .searchBar2:focus {
+    outline: none;
+    border-color: #FC7217;
   }
 
   .searchButton2 {
-    border-radius: 50vb;
-    position: relative;
-    background-color: rgba(252, 114, 23, 0.6);
+    background-color: #FC7217;
+    border: none;
+    border-radius: 0 50px 50px 0;
     font-family: Aleo;
+    font-size: clamp(1rem, 2vw, 2rem);
+    padding: 1rem 2rem;
+    height: 70px;
+    cursor: pointer;
+    color: white;
   }
   
   /* Recipe Section */
@@ -373,7 +406,8 @@
     font-family: 'Aleo';
     background-size: cover;
     background-repeat: no-repeat;
-    height: 235vh;
+    margin-top: 0;
+    height: auto;
     color:#000;
     padding-top: 10vh;
     display: flex;
@@ -383,7 +417,7 @@
 
   .popularRecipeText {
     font-family: "Julius Sans One", sans-serif;
-    font-size: 4em;
+    font-size: clamp(3rem, 5vw, 5rem);
     color: #000;
     text-align: center;
   }
@@ -391,35 +425,47 @@
   .recipeContainer {
     display: grid;
     grid-template-columns: 20vw 40vw;
-    padding-top: 15vh;
+    padding-top: 1vh;
+    margin-top: 5vh;
     column-gap: 2vw;
+    height: auto;
   }
 
   .recipeContainer2 {
     display: grid;
     grid-template-columns: 20vw 18vw;
-    padding-top: 10vh;
-    column-gap: 23svw;
+    padding-top: 1vh;
+    margin-top: 5vh;
+    column-gap: 23vw;
   }
   
   .recipeImage{
-    background-repeat: no-repeat;
+    width: 20vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     background-size: cover;
-    border-radius: 50vb;
+    background-position: center;
+    background-repeat: no-repeat;
     grid-row: 1 / span 3;
+    align-self: center;
   }
 
   .recipeImage2{
-    background-repeat: no-repeat;
+    width: 20vw;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     background-size: cover;
-    border-radius: 50vb;
+    background-position: center;
+    background-repeat: no-repeat;
     grid-row: 1 / span 3;
     grid-column: 2;
+    align-self: center;
   }
 
   .recipeTitle {
     font-family: 'Nothing You Could Do';
-    font-size: 2.75em;
+    font-size: clamp(1.25rem, 2vw, 2.75rem);
     padding-bottom: 2vh;
     text-decoration: underline;
     width: 40vw;
@@ -428,19 +474,21 @@
 
   .recipeTitle:hover {
     color:#D9EC81;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
   }
   
   .recipeDescription {
     font-family: 'Aleo';
-    font-size: 2em;
+    font-size: clamp(1rem, 1.5vw, 2rem);
     width: 40vw;
     padding-bottom: 2vh;
   }
   
   .goToRecipe {
     font-family: 'Nothing You Could Do';
-    font-size: 3em;
+    font-size: clamp(1.25rem, 2vw, 2.75rem);
     display: inline-flex;
+    align-items: center;
     width: 30vw;
     gap: 3vw;
     color: black;
@@ -448,6 +496,11 @@
 
   .goToRecipe:hover {
     color: #FC7217;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+  }
+
+  .goToRecipe:hover svg {
+    filter: brightness(0) saturate(100%) invert(41%) sepia(89%) saturate(2429%) hue-rotate(3deg) brightness(101%) contrast(106%);
   }
 
   .flippedArrow {
@@ -468,8 +521,9 @@
   .moreRecipesLink {
     text-align: center;
     font-family: Aleo, serif;
-    font-size: 2.5em;
+    font-size: clamp(1.5rem, 2vw, 2.5em);
     margin-top: 25vh;
+    margin-bottom: 5vh;
     text-decoration: underline;
     color: black;
   }
@@ -478,107 +532,38 @@
     color:#FC7217;
   }
   
+  @media (max-width: 768px) {
+    .recipeContainer,
+    .recipeContainer2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      row-gap: 2vh;
+    }
 
-      @media screen and (min-width: 1440px) {
-  
-        .textBackground {
-          width: 55vw;
-          height: 60vh;
-        }
-        .titleText1 {
-          top: 4vh;
-          left: 6vw;
-          font-size: 5em;
-        }
-        .titleText2 {
-          top: -5vh;
-          left: 13vw;
-          font-size: 5em;
-        }
-        .titleText3 {
-          top: -7vh;
-          left: 5vw;
-          font-size: 1.7em;
-          width: 45vw;
-        }
-        .searchBar {
-          height: 10vh;
-          width: 50vw;
-        }
-        .searchButton {
-          height: 9.8vh;
-          width: 10vw;
-          top: -10.4vh;
-          left: 20.9vw;
-        }
-        .searchButton2 {
-          font-size: 1.5em;
-          top: 13.6vh;
-          left: 20.5vw;
-        }
+    .recipeImage{
+      grid-row: 1;
+      grid-column: auto;
+      width: 40vw;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      margin-bottom: 2vh;
+    }
 
-        .recipeImage{
-          height: 40vh;
-          width: 18vw;
-          margin-top: 5vh;
-        }
-        .recipeImage2{
-          height: 40vh;
-          width: 18vw;
-          margin-top: 5vh;
-        }
+    .recipeImage2 {
+      order: -1; 
+      grid-column: auto !important;
+      grid-row: auto !important;
+      width: 40vw;
+      margin-bottom: 2vh;
+    }
 
-
-      }
-      
-      @media screen and (min-width: 1920px) {
-
-        .textBackground {
-          width: 50vw;
-          height: 50vh;
-        }
-        .titleText1 {
-          top: 3vh;
-          left: 4vw;
-          font-size: 6em;
-        }
-        .titleText2 {
-          top: -5vh;
-          left: 11vw;
-          font-size: 6em;
-        }
-        .titleText3 {
-          top: -8vh;
-          left: 5vw;
-          font-size: 2em;
-          width: 40vw;
-        }
-        .searchBar {
-          height: 8vh;
-          width: 50vw;
-        }
-        .searchButton {
-          height: 7.8vh;
-          width: 9vw;
-          top: -8.4vh;
-          left: 21.46vw;
-        }
-        .searchButton2 {
-          font-size: 2em;
-          top: 13.65vh;
-          left: 20.15vw;
-        }
-
-        .recipeImage{
-          height: 40vh;
-          width: 19vw;
-          margin-top: 0;
-        }
-        .recipeImage2{
-          height: 40vh;
-          width: 19vw;
-          margin-top: 0;
-        }
-
-      }
+    .recipeTitle,
+    .recipeDescription,
+    .goToRecipe {
+      width: 80vw;
+      justify-content: center;
+    }
+  }
   

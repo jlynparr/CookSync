@@ -2,12 +2,12 @@
   width: 100vw; /* full viewport width */
   height: auto;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 1.5fr 1.5fr 1fr;
+  grid-template-columns: 1.5fr 2fr 2fr 2fr 1.5fr 1.5fr 1fr;
   gap: 1vw;
   align-items: center;
   font-family: "Julius Sans One", sans-serif;
   position: relative;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 2rem);
   color: #000;
   box-sizing: border-box;
   background-color: rgba(255, 252, 245, 0.5);
@@ -17,40 +17,46 @@
 .navOption {
   color: #000;
   text-align: center;
-  width: 10vw;
-  margin-left: 2vw;
 }
 
 .logo {
-  background-size: cover;
-  background-position: center;
-  width: auto;
-  height: 18vh;
+  width: clamp(50px, 20vw, 250px);
+  height: clamp(50px, 20vh, 250px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.logoImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .signUp {
   border-style: solid;
   border-color: #3A5F26;
-  border-width: 3px;
+  border-width: 5px;
   border-radius: 50px;
   background-color: #FFFCF5;
   position: relative;
   color: #3A5F26;
-  width: 13vw;
+  width: clamp(min(10vw, .5rem), 12vw, max(15vw, 1rem));
+  height: auto;
+  font-size: clamp(.5rem, 1.5vw, 2rem);
 }
 
 .logIn {
   border-style: solid;
   border-color: #053007;
-  border-width: 3px;
+  border-width: 5px;
   border-radius: 50px;
   background-color: #3A5F26;
   position: relative;
   color: #D9EC81;
-  width: 13vw;
+  width: clamp(min(10vw, .5rem), 12vw, max(15vw, 1rem));
+  height: auto;
+  font-size: clamp(.54rem, 1.5vw, 2rem);
 }
 
  .searchIconButton {
@@ -60,9 +66,10 @@
   outline: none;
   display: flex;
   align-items: center;
-  width: 85px;
-  height: 85px;
+  width: clamp(2rem, 5vw, 5rem);
+  height: clamp(2rem, 5vw, 5rem);
   margin-right: 2vw;
+  border: none;
 }
 
 .searchIconButton:focus-visible {
@@ -98,7 +105,7 @@
 }
 
 .searchInput {
-  font-size: 2rem;
+  font-size: clamp(1rem, 1.5vw, 2rem);
   font-family: Aleo, serif;
   background-color: rgba(5, 48, 7, 0.75);
   border: solid #053007;
@@ -113,7 +120,7 @@
 }
 
 .submitButton {
-  font-size: 2rem;
+  font-size: clamp(1rem, 1.5vw, 2rem);
   font-family: Aleo, serif;
   padding: 1vh 3vw;
   display: flex;

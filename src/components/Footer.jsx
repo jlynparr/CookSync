@@ -30,9 +30,7 @@ const Footer = () => {
           </div>
           <div>
             <a className={styles.bottomLinks}>Home</a>
-            <br></br>
             <a className={styles.bottomLinks}>About</a>
-            <br></br>
             <a className={styles.bottomLinks}>Recipes</a>
           </div>
           <hr className={styles.lineSplit}></hr>

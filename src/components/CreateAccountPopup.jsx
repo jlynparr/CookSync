@@ -8,7 +8,9 @@ import XIcon from '../assets/images/XIcon.png';
 import createImage from '../assets/images/createImage.jpg';
 import logo from '../assets/images/cooksynclogo.png';
 
-const CreateAccountPopup = ({onClose}) => {
+
+const CreateAccountPopup = ({ onClose, onSwitchToLogin }) => {
+  
   return (
     <div className={styles.overlay}>
       <div className={styles.popup}>
@@ -41,7 +43,8 @@ const CreateAccountPopup = ({onClose}) => {
             <button className={styles.loginButton} type="submit">Create Account</button>
             </form>
           </div>
-          <div className={styles.plainFontStyle}>Already have an account? <span className={styles.boldStyle}>Log in</span></div>
+          <div className={styles.plainFontStyle}>Already have an account? <span className={styles.boldStyle} onClick={onSwitchToLogin}>Log in</span>
+          </div>
         </div>
         <div className={styles.leftSide}>
             <img src={createImage} className={styles.loginImage}/>

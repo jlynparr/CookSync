@@ -10,7 +10,7 @@ import RecipePage from './pages/RecipePage';
 import AllRecipes from './pages/AllRecipes';
 import AboutPage from './pages/AboutPage';
 import AISearchPage from './pages/AISearchPage';
-import CreateAccountPopup from './pages/CreateAccountPopup';
+import CreateAccountPopup from './components/CreateAccountPopup';
 import LoginPopup from './components/LoginPopup';
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
         <Route path="/ai-search" element={<AISearchPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/create-account" element={<CreateAccountPopup />} />
-        <Route path="/login" element={<LoginPopup />} />
+        <Route path="/loginpopup" element={<LoginPopup />} />
       </Routes>
     </BrowserRouter>
   );

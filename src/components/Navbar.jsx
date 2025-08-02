@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from "./Navbar.module.css";
+import LoginPopup from "./LoginPopup";
+import CreateAccountPopup from "./CreateAccountPopup";
 
 import logo from "../assets/images/cooksynclogo.png";
 
@@ -42,6 +44,19 @@ const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+
+  const handleSwitchToLogin = () => {
+    setShowSignup(false);
+    setShowLogin(true);
+  };
+
+  const handleSwitchToSignup = () => {
+    setShowLogin(false);
+    setShowSignup(true);
+  };
+
   const toggleSearch = () => {
     setSearchOpen(prev => !prev);
   };
@@ -69,8 +84,27 @@ const Navbar = () => {
         <Link to="/" className={styles.navOption}>Home</Link>
         <Link to="/recipes"  className={styles.navOption}>Recipes</Link>
         <Link to="/about"  className={styles.navOption}>About</Link>
-        <Link to="/create-account"><button className={styles.signUp}>Sign Up</button></Link>
-        <Link to="/login" ><button className={styles.logIn}>Log In</button></Link>
+
+          <div>
+            <button className={styles.signUp} onClick={() => setShowSignup(true)}>Sign Up</button>
+            {showSignup && (
+              <CreateAccountPopup 
+                onClose={() => setShowSignup(false)} 
+                onSwitchToLogin={handleSwitchToLogin} 
+              />
+            )}
+
+          </div>
+
+          <div>
+            <button className={styles.logIn} onClick={() => setShowLogin(true)}>Log In</button>
+            {showLogin && (
+              <LoginPopup 
+                onClose={() => setShowLogin(false)} 
+                onSwitchToSignup={handleSwitchToSignup}
+               />
+            )}    
+          </div>
 
           <div className={styles.search}>
             <button

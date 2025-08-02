@@ -19,6 +19,10 @@
   text-align: center;
 }
 
+.navOption:hover {
+  color:#FC7217;
+}
+
 .logo {
   width: clamp(50px, 20vw, 250px);
   height: clamp(50px, 20vh, 250px);

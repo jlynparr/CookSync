@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from "./HomePage.module.css";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -16,7 +16,6 @@ import fancyBackground from "../assets/images/fancyBackground.png";
 
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../supabaseClient';
 import { useRef} from 'react';
 
 
@@ -48,7 +47,6 @@ const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showIngredients, setShowIngredients] = useState(false);
   const navigate = useNavigate();
-  const [recipes] = useState([]);
   const ingredientRef = useRef(null);
 
 
@@ -57,12 +55,13 @@ const HomePage = () => {
     navigate(`/recipes?search=${encodeURIComponent(searchTerm)}`);
   };
 
-  const handleIngredientClick = (ingredientName) => {
-    navigate(`/results/${encodeURIComponent(ingredientName)}`);
+  const handleAISearch = (e) => {
+    e.preventDefault();
+    navigate(`/ai-search?search=${encodeURIComponent(searchTerm)}`);
   };
 
-  const handleRecipeClick = (recipeName) => {
-    navigate(`/recipe/:recipeName${encodeURIComponent(recipeName)}`);
+  const handleIngredientClick = (ingredientName) => {
+    navigate(`/results/${encodeURIComponent(ingredientName)}`);
   };
 
   const toggleList = () => {
@@ -148,9 +147,9 @@ const HomePage = () => {
 
         {/* More Ingredients Button and Dropdown */}
         {!showIngredients && (
-          <div className={styles.moreIngredientButtonArrow}>
+          <div className={styles.moreIngredientButtonArrow} onClick={toggleList}>
             <div className={styles.moreIngredientTab}>
-              <button className={styles.moreIngredientsButton} onClick={toggleList}>More Ingredients</button>
+              <button className={styles.moreIngredientsButton} >More Ingredients</button>
             </div>
             <div className={styles.dropdownContainer}>
               <button onClick={handleOpenList} className={styles.dropdownButton}>
@@ -181,7 +180,7 @@ const HomePage = () => {
         
            
             {showIngredients && (
-              <div className={styles.dropdownContainer2}> 
+              <div className={styles.dropdownContainer2} onClick={handleCloseList} > 
               <button onClick={handleCloseList} className={styles.dropdownButton2}>
                 {/* Up arrow */}
                 <svg width="70" height="30" viewBox="0 0 81 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -200,7 +199,7 @@ const HomePage = () => {
             Tell us what ingredients you have on hand and we’ll cook up recipe
             ideas just for you.
           </div>
-          <form className={styles.searchForm2} onSubmit={handleSearch}>
+          <form className={styles.searchForm2} onSubmit={handleAISearch}>
             <input
               className={styles.searchBar2}
               type="text"
@@ -256,10 +255,10 @@ const HomePage = () => {
           <hr className={styles.recipeLineBreak}></hr>
 
           <div className={styles.recipeContainer}>
-            <Link to="/recipe" className={styles.recipeImage}
+            <Link to={`/recipe/${encodeURIComponent("Tomato Basil Soup")}`} className={styles.recipeImage}
               style={{ backgroundImage: `url(${tomatoSoupImage})`}}
             ></Link>
-            <Link to="/recipe" className={styles.recipeTitle}>Tomato Basil Soup</Link>
+            <Link to={`/recipe/${encodeURIComponent("Tomato Basil Soup")}`} className={styles.recipeTitle}>Tomato Basil Soup</Link>
             <div className={styles.recipeDescription}>
               Creamy, comforting, and full of rich tomato flavor with a fresh basil
               twist. It’s a cozy bowl of warmth that pairs perfectly with a grilled

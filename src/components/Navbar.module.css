@@ -2,12 +2,12 @@
   width: 100vw; /* full viewport width */
   height: auto;
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 2fr 1.5fr 1.5fr 1fr;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1fr;
   gap: 1vw;
   align-items: center;
   font-family: "Julius Sans One", sans-serif;
   position: relative;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(1rem, 3vw, 3rem);
   color: #000;
   box-sizing: border-box;
   background-color: rgba(255, 252, 245, 0.5);
@@ -37,32 +37,6 @@
   object-fit: contain;
 }
 
-.signUp {
-  border-style: solid;
-  border-color: #3A5F26;
-  border-width: 5px;
-  border-radius: 50px;
-  background-color: #FFFCF5;
-  position: relative;
-  color: #3A5F26;
-  width: clamp(min(10vw, .5rem), 12vw, max(15vw, 1rem));
-  height: auto;
-  font-size: clamp(.5rem, 1.5vw, 2rem);
-}
-
-.logIn {
-  border-style: solid;
-  border-color: #053007;
-  border-width: 5px;
-  border-radius: 50px;
-  background-color: #3A5F26;
-  position: relative;
-  color: #D9EC81;
-  width: clamp(min(10vw, .5rem), 12vw, max(15vw, 1rem));
-  height: auto;
-  font-size: clamp(.54rem, 1.5vw, 2rem);
-}
-
  .searchIconButton {
   background-color: transparent;
   padding: 0;
@@ -73,6 +47,7 @@
   width: clamp(2rem, 5vw, 5rem);
   height: clamp(2rem, 5vw, 5rem);
   margin-right: 2vw;
+  margin-left: 5vw;
   border: none;
 }
 
@@ -91,31 +66,38 @@
 
 .searchForm {
   position: absolute;
-  top: 0vh;
-  right: 0vw;
+  top: .25vh;
+  right: 1vw;
   background: #FDF8E1;
-  border-radius: 2vb;
-  border: solid 4px; 
+  border-radius: 4vb;
+  border: solid 2px; 
   box-shadow: 2px 2px 5px black;
 }
 
 .closeButton {
   background: none;
-  height: 5vh;
-  margin: 1vh;
+  padding: 2vb;
   display: flex;
   justify-self: flex-end;
   align-items: center;
+  border: none;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  border: none;
 }
 
 .searchInput {
   font-size: clamp(1rem, 1.5vw, 2rem);
   font-family: Aleo, serif;
   background-color: rgba(5, 48, 7, 0.75);
-  border: solid #053007;
-  border-radius: 2vb;
+  border: 2px solid #053007;
+  border-radius: 5vb;
   text-align: center;
-  margin: .5vh 1vw 2vh 1vw;
+  margin: 0vh 1vw 2vh 1vw;
+  padding: 1vb;
   box-shadow: 2px 2px 5px black;
 }
 
@@ -133,5 +115,14 @@
   background-color: #FC7217;
   color:white;
   box-shadow: 2px 2px 5px black;
+  border-radius: 2vb;
+  border: none;
+}
+
+.submitButton:hover {
+  background-color: #e66015;
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
 }
 

@@ -9,6 +9,8 @@ import tiktokIcon from "../assets/images/tiktok.png";
 import youtubeIcon from "../assets/images/youtube.png";
 import twitterIcon from "../assets/images/twitterIMG.png";
 
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <>
@@ -29,17 +31,17 @@ const Footer = () => {
             <hr className={styles.linkLines}></hr>
           </div>
           <div>
-            <a className={styles.bottomLinks}>Home</a>
-            <a className={styles.bottomLinks}>About</a>
-            <a className={styles.bottomLinks}>Recipes</a>
+            <Link to="/" className={styles.bottomLinks}>Home</Link>
+            <Link to="/about" className={styles.bottomLinks}>About</Link>
+            <Link to="/recipes" className={styles.bottomLinks}>Recipes</Link>
           </div>
           <hr className={styles.lineSplit}></hr>
           <div className={styles.socialMediaIcons}>Contact Us<br></br>
-            <img src={instagramIcon} alt="Instagram" className={styles.socialIcon} />
-            <img src={youtubeIcon} alt="YouTube" className={styles.socialIcon} />
-            <img src={tiktokIcon} alt="TikTok" className={styles.socialIcon} />
+            <img src={instagramIcon} alt="Instagram" className={styles.socialIcon} onClick={() => window.open('https://www.instagram.com/cooksyncteam/', '_blank')}/>
+            <img src={youtubeIcon} alt="YouTube" className={styles.socialIcon} onClick={() => window.open('https://www.youtube.com/channel/UCdZsa2CeVN8w_On0yLVwbNg', '_blank')}/>
+            <img src={tiktokIcon} alt="TikTok" className={styles.socialIcon} onClick={() => window.open('https://www.tiktok.com/@cooksyncteam', '_blank')}/>
             <img src={facebookIcon} alt="Facebook" className={styles.socialIcon} />
-            <img src={twitterIcon} alt="Twitter" className={styles.socialIcon} />
+            <img src={twitterIcon} alt="Twitter" className={styles.socialIcon} onClick={() => window.open('https://x.com/CookSyncTeam', '_blank')}/>
           </div>    
       </div>
       </>

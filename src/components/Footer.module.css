@@ -11,7 +11,7 @@
 
   .footer {
     height: auto;
-    background-color: #04050A;
+    background-color: #080814;
     padding-top: 5vh;
     padding-bottom: 5vh;
     display: grid;
@@ -19,6 +19,7 @@
     justify-content: center;
     font-family: Aleo, serif;
     column-gap: 4vw;
+    
   }
 
   .logoCopyIcons {

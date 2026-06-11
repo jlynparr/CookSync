@@ -1,13 +1,13 @@
 .navBar {
   width: 100vw; /* full viewport width */
   height: auto;
-  display: grid;
-  grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1fr;
-  gap: 1vw;
+  display: flex;
+  gap: 10vw;
   align-items: center;
+  justify-content: center;
   font-family: "Julius Sans One", sans-serif;
   position: relative;
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(.75rem, 1.5vw, 2rem);
   color: #000;
   box-sizing: border-box;
   background-color: rgba(255, 252, 245, 0.5);
@@ -25,16 +25,15 @@
 
 .logo {
   width: clamp(50px, 20vw, 250px);
-  height: clamp(50px, 20vh, 250px);
+  height: clamp(20px, 9vh, 150px);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-right: 3vw;
 }
 
 .logoImage {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
  .searchIconButton {

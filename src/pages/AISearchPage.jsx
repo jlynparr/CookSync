@@ -6,7 +6,7 @@ import styles from "./AISearchPage.module.css";
 const AISearchPage = () => {
   const [prompt, setPrompt] = useState("");
   const [aiResults, setAiResults] = useState([]);
-  const [aiMessage, setAiMessage] = useState(""); // ✅ Add state for AI message
+  const [aiMessage, setAiMessage] = useState(""); // Add state for AI message
   const [loading, setLoading] = useState(false);
 
   const handleAISearch = async () => {
@@ -21,12 +21,12 @@ const AISearchPage = () => {
       });
 
       const data = await response.json();
-      console.log("✅ Received response:", data);
+      console.log("Received response:", data);
 
       setAiResults(data.response || []);
-      setAiMessage(data.aiMessage || ""); // ✅ Save AI message
+      setAiMessage(data.aiMessage || ""); // Save AI message
     } catch (error) {
-      console.error("❌ Error fetching AI results:", error);
+      console.error("Error fetching AI results:", error);
       setAiResults([]);
       setAiMessage("");
     } finally {
@@ -41,28 +41,46 @@ const AISearchPage = () => {
       <div className={styles.introSection}>
         <h1 className={styles.sectionTitle}>AI Cooking Assistant</h1>
         <p className={styles.introParagraph}>
-          Your smart kitchen companion that finds recipes based on the ingredients you already have...
+          Your smart kitchen companion that finds recipes based on the ingredients you already have. 
+          Easily filter results by cooking time, difficulty, number of servings, and even exclude 
+          ingredients you don’t want to use — making mealtime simple, flexible, and stress-free!
         </p>
       </div>
 
-      <hr />
+      <hr className={styles.breakLine}/>
 
+      <h1 className={styles.sectionTitle}>Recipe Suggestions</h1>
+      <p className={styles.introParagraph2}>
+        Type the ingredients you have — like ‘chicken, rice, broccoli’ — and we’ll find recipes you can make. 
+        You can also ask to filter by cooking time, level of difficulty, number of servings or even have 
+        certain ingredients excluded from the recommendations!
+      </p>
       <div className={styles.sectionSearchBar}>
-        <input
-          className={styles.searchBar}
-          placeholder="Ask AI a cooking question..."
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-        />
-        <button className={styles.searchButton} onClick={handleAISearch}>
-          {loading ? "Searching..." : "AI Search"}
-        </button>
+        <div className={styles.searchWrapper}>
+          <input
+            className={styles.searchBar}
+            placeholder="Ask AI a cooking question..."
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+          />
+
+          <button className={styles.searchButton} onClick={handleAISearch}>
+            {loading ? "Searching..." : (
+              <svg width="35" height="35" viewBox="0 0 24 24" fill="none">
+                <path d="M12 4L12 20" stroke="white" strokeWidth="3" strokeLinecap="square" />
+                <path d="M12 2L3 12" stroke="white" strokeWidth="3" strokeLinecap="round" />
+                <path d="M12 2L21 12" stroke="white" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
+      <hr className={styles.breakLine}/>      
 
       {aiMessage && <p className={styles.aiMessage}>{aiMessage}</p>}
+      
       <div className={styles.resultsSection}>
-        
 
         {aiResults && aiResults.length > 0 ? (
           aiResults.map((recipe, index) => (

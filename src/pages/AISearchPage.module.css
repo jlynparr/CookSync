@@ -1,74 +1,113 @@
-.mainBody {
+  .mainBody {
     background-color: #053007F2;
-}
 
-.navBar {
+  }
+
+  .navBar {
     background-color: rgba(255,252,245, 0.3);
-}
+  }
 
-.sectionTitle {
+  .sectionTitle {
     font-family: "Julius Sans One", sans-serif;
     color: #D9EC81;
-    font-size: 4em;
+    font-size: 4vw;
     text-align: center;
     padding-top: 10vh;
     padding-bottom: 3vh;
-}
+  }
 
-.introParagraph {
+  .introParagraph {
     font-family: Aleo, serif;
-    font-size: 2em;
-    color: #FDF8E1;
-    width: 60vw;
-    text-align: center;
-    margin: 0 auto;
-    padding-bottom: 20vh;
-}
-
-.breakLine {
-    width: 75%;
-    margin: 15vh auto;
-}
-
-.introParagraph2 {
-    font-family: Aleo, serif;
-    font-size: 2em;
+    font-size: 2vw;
     color: #FDF8E1;
     width: 60vw;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 15vh;
-}
+  }
 
-.sectionSearchBar {
+  .breakLine {
+    width: 75%;
+  }
+
+  .introParagraph2 {
+    font-family: Aleo, serif;
+    font-size: 2vw;
+    color: #FDF8E1;
+    width: 60vw;
+    text-align: center;
+    margin: 0 auto;
+    padding: 5vh 0 10vh 0;
+  }
+
+  .sectionSearchBar {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 30vh;
-}
+    padding-bottom: 15vh;
+  }
+
+  .searchWrapper {
+    position: relative;
+    width: 40vw;
+    border: solid black;
+    display: flex;
+    align-items: center;
+  }
 
   .searchBar {
-    background-color: #3A5F26;
-    opacity: 85%;
+    flex: 1;
+    background-color: rgba(58, 95, 38, .85);
     border-style: solid;
     border-color: #FC7217;
-    border-width: .5vb;
-    border-radius: 50vb;
+    border-width: .2rem;
+    border-radius: 50px 0 0 50px;
     font-family: Aleo;
-    font-size: 2em;
-    padding-left: 2vw;
-    height: 9vh;
-    width: 50vw;
+    font-size: 2vw;
+    padding: 1vh 2vw;
+    color: white;
+    height: 8vh;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .searchBar::placeholder {
+    color: white;
+    opacity: 0.9;
+  }
+
+  .searchBar:focus {
+    outline: none;
+    border-color: #FC7217;
   }
 
   .searchButton {
-    border-radius: 50vb;
-    position: absolute;
-    background-color: rgba(252, 114, 23, 0.6);
-    font-family: Aleo;
-    height: 9vh;
-    width: 10vw;
-    margin-left: 42vw;
+    background-color: #FC7217;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    width: 8vh;
+    height: 8vh;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .75vw;;
+  }
+
+  .searchButton:focus {
+    outline: none;
+    border: none;
+  }
+
+  .aiMessage {
+    font-family: Aleo, serif;
+    font-size: 2vw;
+    color: #FDF8E1;
+    width: 60vw;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10vh 0;
   }
 
   .resultsSection {
@@ -76,7 +115,6 @@
     justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 10vh 10vw;
-    border: solid black;
   }
 
   .recipeCard {
@@ -85,10 +123,16 @@
     flex-direction: column;
     align-items: center;
     background-color: #3A5F26;
-    border-radius: 2vb;
+    border-radius: 10px;
     padding: 2vh 2vw;
     margin-bottom: 5vh;
     width: 20vw;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+  }
+
+  .recipeCard:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
   }
 
   .recipeCard img {
@@ -96,25 +140,30 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border: solid 2px black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
   }
 
   .recipeCard h4 {
     font-family: Aleo, serif;
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
+    font-size: 1.5vw;
     color: white;
-    margin: 2vh 0;
+    margin: 4vh 0 2vh 0;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
 
   .recipeCard p {
     font-family: Aleo, serif;
-    font-size: clamp(0.75rem, 1vw, 1.25rem);
+    font-size: 1vw;
     color: white;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
 
   .recipeDetails{
-    font-size: clamp(1rem, 1.25vw, 1.5rem);
+    font-size: 1.25vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 2vw;;
@@ -160,5 +209,41 @@
         background-position: center;
         background-repeat: no-repeat;
     }
+
+    .recipeCard h4 {
+        font-family: Aleo, serif;
+        font-size: 2vw;
+        color: white;
+        margin: 4vh 0 2vh 0;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .recipeCard p {
+        font-family: Aleo, serif;
+        font-size: 1.5vw;
+        width: 75%;
+        color: white;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .recipeDetails{
+        font-size: 1.5vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 2vw;;
+        align-items: center;
+        justify-content: center;
+    }
+
+      .searchButton {
+        font-size: 2vw;
+      }
+
+      .searchButton:focus {
+        outline: none;
+        border: none;
+      }
   }
 

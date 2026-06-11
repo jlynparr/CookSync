@@ -11,13 +11,17 @@ app.use(bodyParser.json());
 
 // Example keywords for ingredient detection
 const ingredientKeywords = [
-  "chicken", "beef", "pasta", "rice", "egg", "garlic", "onion",
-  "tomato", "cheese", "butter", "milk", "flour"
+  "chicken", "garlic", "butter", "salt", "black pepper", "spaghetti", "egg", "pancetta",
+  "parmesan cheese", "beef", "soy sauce", "bell pepper", "oil", "potato", "carrots",
+  "green peas", "coconut milk", "curry powder", "cucumber", "tomato", "feta cheese", "olives",
+  "oregano", "shrimp", "tortilla", "cabbage", "lime", "sour cream", "onion", "broth", "basil",
+  "salmon", "lemon", "taco seasoning", "lettuce", "pasta", "heavy cream", "rice", "flour", "milk",
+  "chocolate", "baking powder", "red pepper flakes", "parsley"
 ];
 
 app.post("/api/ai-search", async (req, res) => {
   const { prompt } = req.body;
-  console.log("📥 Received prompt:", prompt);
+  console.log("Received prompt:", prompt);
 
   if (!prompt || !prompt.trim()) {
     return res.status(400).json({ error: "Prompt is required" });
@@ -29,7 +33,7 @@ app.post("/api/ai-search", async (req, res) => {
   const detectedIngredients = ingredientKeywords.filter(keyword =>
     lowerPrompt.includes(keyword)
   );
-  console.log("🧂 Detected ingredients:", detectedIngredients);
+  console.log("Detected ingredients:", detectedIngredients);
 
   try {
     // Get all recipes with ingredients
@@ -50,7 +54,7 @@ app.post("/api/ai-search", async (req, res) => {
       `);
 
     if (error) {
-      console.error("❌ Supabase error:", error);
+      console.error("Supabase error:", error);
       return res.status(500).json({ error: error.message });
     }
 
@@ -80,16 +84,39 @@ app.post("/api/ai-search", async (req, res) => {
     );
 
     // Craft AI-style response
+    const cleanIngredients = detectedIngredients.filter(i => i && i.trim() !== "");
+
     let aiMessage;
+
     if (matches.length === 0) {
-      aiMessage = `Hmm, I couldn't find any recipes with ${detectedIngredients.join(", ")}. Maybe try adding more ingredients or check your spelling?`;
+
+      if (cleanIngredients.length > 5) {
+        aiMessage = `Hmm, I couldn't find any recipes with ${cleanIngredients.join(", ")}. Maybe try adding more ingredients or check your spelling?`;
+      }
+
+      else if (cleanIngredients.length === 2) {
+        aiMessage = `I couldn't find any recipes with ${cleanIngredients.join(" and ")}. Try adding more ingredients or check your spelling!`;
+      }
+
+      else if (cleanIngredients.length === 1) {
+        aiMessage = `I couldn't find any recipes with ${cleanIngredients[0]}. Try adding more ingredients or check your spelling!`;
+      }
+
+      else {
+        aiMessage = `I couldn't find any recipes with those ingredients. Try adding more or checking spelling!`;
+      }
+
+    } else if (matches.length === 1) {
+      aiMessage = `Here is 1 recipe you can make with ${cleanIngredients[0]}!`;
     } else {
-      aiMessage = `I found ${matches.length} recipe(s) you can make with ${detectedIngredients.join(", ")}!`;
+      aiMessage = `Here are ${matches.length} recipes you can make with ${cleanIngredients.join(", ")}!`;
     }
+
+
 
     res.json({ response: matches, aiMessage });
   } catch (err) {
-    console.error("❌ Server error:", err);
+    console.error("Server error:", err);
     res.status(500).json({ error: "Internal server error" });
   }
 });

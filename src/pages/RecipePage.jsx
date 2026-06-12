@@ -37,7 +37,7 @@ useEffect(() => {
           ingredients ( name )
         )
       `)
-      .eq('name', decodeURIComponent(recipeName))
+      .ilike('name', decodeURIComponent(recipeName))
       .single();
 
     if (error) {

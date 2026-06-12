@@ -9,14 +9,141 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Example keywords for ingredient detection
 const ingredientKeywords = [
-  "chicken", "garlic", "butter", "salt", "black pepper", "spaghetti", "egg", "pancetta",
-  "parmesan cheese", "beef", "soy sauce", "bell pepper", "oil", "potato", "carrots",
-  "green peas", "coconut milk", "curry powder", "cucumber", "tomato", "feta cheese", "olives",
-  "oregano", "shrimp", "tortilla", "cabbage", "lime", "sour cream", "onion", "broth", "basil",
-  "salmon", "lemon", "taco seasoning", "lettuce", "pasta", "heavy cream", "rice", "flour", "milk",
-  "chocolate", "baking powder", "red pepper flakes", "parsley"
+  // Chicken
+  "chicken", "chicken breast", "rotisserie chicken", "poultry",
+
+  // Garlic
+  "garlic", "garlic cloves", "minced garlic",
+
+  // Butter
+  "butter", "unsalted butter", "salted butter",
+
+  // Salt
+  "salt", "sea salt", "kosher salt",
+
+  // Black Pepper / Bell Pepper
+  "black pepper", "pepper", "peppers", "bell pepper", "bell peppers",
+
+  // Spaghetti / Pasta
+  "spaghetti", "pasta", "noodles", "linguine", "fettuccine", "penne",
+
+  // Eggs
+  "egg", "eggs",
+
+  // Pancetta
+  "pancetta", "bacon",
+
+  // Parmesan
+  "parmesan", "parmesan cheese", "parmigiano",
+
+  // Beef
+  "beef", "beef strips", "ground beef", "steak", "meat",
+
+  // Soy Sauce
+  "soy sauce", "soy",
+
+  // Olive Oil / Vegetable Oil / Oil
+  "olive oil", "oil", "vegetable oil", "cooking oil",
+
+  // Potatoes
+  "potato", "potatoes",
+
+  // Carrots
+  "carrot", "carrots",
+
+  // Green Peas
+  "green peas", "peas",
+
+  // Coconut Milk
+  "coconut milk", "coconut",
+
+  // Curry Powder
+  "curry powder", "curry",
+
+  // Cucumber
+  "cucumber", "cucumbers",
+
+  // Tomatoes
+  "tomato", "tomatoes",
+
+  // Feta Cheese / Cheddar Cheese / Parmesan / Cheese
+  "feta", "feta cheese", "cheddar", "cheddar cheese", "cheese",
+
+  // Olives
+  "olives", "olive",
+
+  // Oregano
+  "oregano",
+
+  // Shrimp
+  "shrimp", "prawns", "seafood",
+
+  // Tortillas
+  "tortilla", "tortillas", "wrap", "wraps",
+
+  // Cabbage
+  "cabbage",
+
+  // Lime
+  "lime", "limes",
+
+  // Sour Cream
+  "sour cream",
+
+  // Onion
+  "onion", "onions", "red onion", "white onion", "yellow onion",
+
+  // Vegetable Broth
+  "broth", "vegetable broth", "stock", "vegetable stock",
+
+  // Basil
+  "basil", "basil leaves", "fresh basil",
+
+  // Salmon
+  "salmon", "salmon fillet", "fish",
+
+  // Lemon
+  "lemon", "lemons",
+
+  // Taco Seasoning
+  "taco seasoning", "taco spice", "taco mix",
+
+  // Lettuce
+  "lettuce", "greens", "salad greens",
+
+  // Heavy Cream
+  "heavy cream", "cream", "whipping cream",
+
+  // Rice
+  "rice", "cooked rice", "white rice", "brown rice",
+
+  // Flour
+  "flour", "all purpose flour",
+
+  // Milk
+  "milk", "whole milk",
+
+  // Chocolate Chips
+  "chocolate chips", "chocolate", "chips",
+
+  // Baking Powder
+  "baking powder",
+
+  // Red Pepper Flakes
+  "red pepper flakes", "chili flakes", "chilli flakes", "red pepper",
+
+  // Parsley
+  "parsley", "fresh parsley",
+
+  // Green Onions
+  "green onions", "scallions", "spring onions",
+
+  // Soy Sauce (already covered but adding variation)
+  "soy",
+
+  // Taco related
+  "tacos", "taco"
 ];
 
 app.post("/api/ai-search", async (req, res) => {
@@ -29,14 +156,12 @@ app.post("/api/ai-search", async (req, res) => {
 
   const lowerPrompt = prompt.toLowerCase();
 
-  // Detect ingredients mentioned in prompt
   const detectedIngredients = ingredientKeywords.filter(keyword =>
     lowerPrompt.includes(keyword)
   );
   console.log("Detected ingredients:", detectedIngredients);
 
   try {
-    // Get all recipes with ingredients
     const { data: recipeData, error } = await supabase
       .from("recipe_ingredients")
       .select(`
@@ -58,7 +183,6 @@ app.post("/api/ai-search", async (req, res) => {
       return res.status(500).json({ error: error.message });
     }
 
-    // Aggregate recipe ingredients
     const recipeMap = new Map();
     recipeData.forEach(entry => {
       if (!entry.recipes || !entry.ingredients) return;
@@ -76,43 +200,35 @@ app.post("/api/ai-search", async (req, res) => {
       }
     });
 
-    // Match recipes based on detected ingredients (partial match)
-    const matches = Array.from(recipeMap.values()).filter(recipe =>
-      detectedIngredients.every(ing =>
-        recipe.ingredients.some(ri => ri.includes(ing))
-      )
-    );
+    const matches = detectedIngredients.length === 0
+      ? []
+      : Array.from(recipeMap.values()).filter(recipe =>
+          detectedIngredients.every(ing =>
+            recipe.ingredients.some(ri => ri.includes(ing))
+          )
+        );
 
-    // Craft AI-style response
     const cleanIngredients = detectedIngredients.filter(i => i && i.trim() !== "");
 
     let aiMessage;
 
-    if (matches.length === 0) {
-
-      if (cleanIngredients.length > 5) {
-        aiMessage = `Hmm, I couldn't find any recipes with ${cleanIngredients.join(", ")}. Maybe try adding more ingredients or check your spelling?`;
-      }
-
-      else if (cleanIngredients.length === 2) {
+    if (detectedIngredients.length === 0) {
+      aiMessage = `I didn't recognize any ingredients in your search. Try typing something like "chicken" or "garlic"!`;
+    } else if (matches.length === 0) {
+      if (cleanIngredients.length > 2) {
+        aiMessage = `Hmm, I couldn't find any recipes with ${cleanIngredients.join(", ")}. Maybe try fewer ingredients or check your spelling?`;
+      } else if (cleanIngredients.length === 2) {
         aiMessage = `I couldn't find any recipes with ${cleanIngredients.join(" and ")}. Try adding more ingredients or check your spelling!`;
-      }
-
-      else if (cleanIngredients.length === 1) {
+      } else if (cleanIngredients.length === 1) {
         aiMessage = `I couldn't find any recipes with ${cleanIngredients[0]}. Try adding more ingredients or check your spelling!`;
-      }
-
-      else {
+      } else {
         aiMessage = `I couldn't find any recipes with those ingredients. Try adding more or checking spelling!`;
       }
-
     } else if (matches.length === 1) {
-      aiMessage = `Here is 1 recipe you can make with ${cleanIngredients[0]}!`;
+      aiMessage = `Here is 1 recipe you can make with ${cleanIngredients.join(", ")}!`;
     } else {
       aiMessage = `Here are ${matches.length} recipes you can make with ${cleanIngredients.join(", ")}!`;
     }
-
-
 
     res.json({ response: matches, aiMessage });
   } catch (err) {

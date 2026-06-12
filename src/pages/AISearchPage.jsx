@@ -2,11 +2,12 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./AISearchPage.module.css";
+import { Link } from "react-router-dom";
 
 const AISearchPage = () => {
-  const [prompt, setPrompt] = useState("");
-  const [aiResults, setAiResults] = useState([]);
-  const [aiMessage, setAiMessage] = useState(""); // Add state for AI message
+  const [prompt, setPrompt] = useState(sessionStorage.getItem('aiPrompt') || "");
+  const [aiResults, setAiResults] = useState(JSON.parse(sessionStorage.getItem('aiResults') || "[]"));
+  const [aiMessage, setAiMessage] = useState(sessionStorage.getItem('aiMessage') || "");
   const [loading, setLoading] = useState(false);
 
   const handleAISearch = async () => {
@@ -25,6 +26,11 @@ const AISearchPage = () => {
 
       setAiResults(data.response || []);
       setAiMessage(data.aiMessage || ""); // Save AI message
+      setPrompt(prompt);
+
+      sessionStorage.setItem('aiResults', JSON.stringify(data.response || []));
+      sessionStorage.setItem('aiMessage', data.aiMessage || "");
+      sessionStorage.setItem('aiPrompt', prompt);
     } catch (error) {
       console.error("Error fetching AI results:", error);
       setAiResults([]);
@@ -85,6 +91,7 @@ const AISearchPage = () => {
         {aiResults && aiResults.length > 0 ? (
           aiResults.map((recipe, index) => (
             <div key={index} className={styles.recipeCard}>
+              <Link to={`/recipe/${encodeURIComponent(recipe.name)}`}> 
               <img src={recipe.recipe_image} alt={recipe.name} />
               <h4>{recipe.name}</h4>
               <p>{recipe.description}</p>
@@ -96,7 +103,9 @@ const AISearchPage = () => {
                 <span> {recipe.servings} servings </span>
                 <span> {recipe.difficulty}</span>
               </p>
+              </Link>
             </div>
+      
           ))
         ) : (
           <p className={styles.noResults}>No recipes found yet!</p>

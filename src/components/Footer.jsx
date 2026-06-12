@@ -20,12 +20,14 @@ const Footer = () => {
         ></div>
         <div className={styles.footer}>
           <div className={styles.logoCopyIcons}>
-            <div className={styles.bottomLogo}
+            <Link to="/"> <div className={styles.bottomLogo}
               style={{ backgroundImage: `url(${bottomLogo})`}}
-            ></div>  
+            ></div>
+            </Link>  
             <div>&copy; Copyright 2025</div>
           </div>
           <div>
+            <hr className={styles.linkLines}></hr>
             <hr className={styles.linkLines}></hr>
             <hr className={styles.linkLines}></hr>
             <hr className={styles.linkLines}></hr>
@@ -33,15 +35,16 @@ const Footer = () => {
           <div>
             <Link to="/" className={styles.bottomLinks}>Home</Link>
             <Link to="/about" className={styles.bottomLinks}>About</Link>
+            <Link to="/ai-search"  className={styles.bottomLinks}>AI</Link>
             <Link to="/recipes" className={styles.bottomLinks}>Recipes</Link>
           </div>
           <hr className={styles.lineSplit}></hr>
           <div className={styles.socialMediaIcons}>Contact Us<br></br>
-            <img src={instagramIcon} alt="Instagram" className={styles.socialIcon} onClick={() => window.open('https://www.instagram.com/cooksyncteam/', '_blank')}/>
-            <img src={youtubeIcon} alt="YouTube" className={styles.socialIcon} onClick={() => window.open('https://www.youtube.com/channel/UCdZsa2CeVN8w_On0yLVwbNg', '_blank')}/>
-            <img src={tiktokIcon} alt="TikTok" className={styles.socialIcon} onClick={() => window.open('https://www.tiktok.com/@cooksyncteam', '_blank')}/>
+            <img src={instagramIcon} alt="Instagram" className={styles.socialIcon}/>
+            <img src={youtubeIcon} alt="YouTube" className={styles.socialIcon} />
+            <img src={tiktokIcon} alt="TikTok" className={styles.socialIcon} />
             <img src={facebookIcon} alt="Facebook" className={styles.socialIcon} />
-            <img src={twitterIcon} alt="Twitter" className={styles.socialIcon} onClick={() => window.open('https://x.com/CookSyncTeam', '_blank')}/>
+            <img src={twitterIcon} alt="Twitter" className={styles.socialIcon} />
           </div>    
       </div>
       </>

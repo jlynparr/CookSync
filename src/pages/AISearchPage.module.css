@@ -50,7 +50,6 @@
   .searchWrapper {
     position: relative;
     width: 40vw;
-    border: solid black;
     display: flex;
     align-items: center;
   }

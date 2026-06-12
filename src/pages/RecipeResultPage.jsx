@@ -36,7 +36,7 @@ function RecipeResultPage() {
       const { data: ingredients, error: ingredientError } = await supabase
         .from('ingredients')
         .select('*')
-        .eq('name', searchTerm);  // use eq here for exact matching
+        .ilike('name', searchTerm);  // use eq here for exact matching
 
       if (ingredientError) throw ingredientError;
       if (!ingredients.length) {

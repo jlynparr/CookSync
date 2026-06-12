@@ -48,7 +48,7 @@ async function insertRecipes() {
         ingredientId = newIngredient[0].id
       }
 
-      // Insert into recipe_ingredients join table
+      // Inserting the join info into recipe_ingredients
       await supabase
         .from('recipe_ingredients')
         .insert({

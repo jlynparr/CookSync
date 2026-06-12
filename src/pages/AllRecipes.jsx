@@ -20,7 +20,7 @@ const letterRanges = {
 const AllRecipes = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const initialSearch = queryParams.get('search') || ''; // ✅ Move this above useState
+  const initialSearch = queryParams.get('search') || ''; 
 
   const [recipes, setRecipes] = useState([]);
   const [searchQuery, setSearchQuery] = useState(initialSearch);
@@ -59,7 +59,7 @@ const AllRecipes = () => {
       setError(null);
 
       try {
-        // Find ingredient(s) matching the search term
+        // Find ingredients matching the search term
         const { data: ingredients, error: ingredientError } = await supabase
           .from('ingredients')
           .select('id')

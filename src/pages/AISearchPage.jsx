@@ -25,7 +25,7 @@ const AISearchPage = () => {
       console.log("Received response:", data);
 
       setAiResults(data.response || []);
-      setAiMessage(data.aiMessage || ""); // Save AI message
+      setAiMessage(data.aiMessage || ""); 
       setPrompt(prompt);
 
       sessionStorage.setItem('aiResults', JSON.stringify(data.response || []));

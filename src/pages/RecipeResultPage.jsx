@@ -11,7 +11,7 @@ import oliveImage from '../assets/images/oliveOil.jpg';
 import styles from './RecipeResultPage.module.css';
 
 function RecipeResultPage() {
-  const { ingredientName } = useParams();  // get ingredient name from URL
+  const { ingredientName } = useParams();  
 
   const [ingredient, setIngredient] = useState(null);
   const [recipes, setRecipes] = useState([]);
@@ -21,7 +21,6 @@ function RecipeResultPage() {
 
   const searchTerm = ingredientName || '';
 
-  // OR from query string ?search=garlic
   const { search } = useLocation();
   const searchTermFromQuery = new URLSearchParams(search).get('search') || '';
   const ingredientImg = ingredient?.ing_img?.url || ingredient?.ing_img;
@@ -36,7 +35,7 @@ function RecipeResultPage() {
       const { data: ingredients, error: ingredientError } = await supabase
         .from('ingredients')
         .select('*')
-        .ilike('name', searchTerm);  // use eq here for exact matching
+        .ilike('name', searchTerm);  
 
       if (ingredientError) throw ingredientError;
       if (!ingredients.length) {
@@ -60,7 +59,7 @@ function RecipeResultPage() {
       const { data: joinRows, error: joinError } = await supabase
         .from('recipe_ingredients')
         .select('recipe_id')
-        .eq('ingredient_id', matchedIngredient.id);  // Use eq here and make sure id is defined
+        .eq('ingredient_id', matchedIngredient.id); 
 
       if (joinError) throw joinError;
       if (!joinRows.length) {
@@ -120,7 +119,7 @@ console.log('Image URL:', ingredient?.ing_img);
           const lineBreak = index === 0;
           const lineBreak2 = index === 1;
 
-          // Only show the "Top Recipe" layout for first 3
+      
           if (index <= 2) {
             return (
               <div
@@ -168,7 +167,7 @@ console.log('Image URL:', ingredient?.ing_img);
           }
 
           <h2 className={styles.moreRecipesTitle}>More Popular Recipes</h2>
-          // Show "More Recipes" layout for the rest
+    
           return ( 
             <div key={recipe.id} className={styles.moreRecipesContainer}>
               {index === 3 && (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from "./Navbar.module.css";
+import { Menu, X } from "lucide-react";
 
 import logo from "../assets/images/cooksynclogo.png";
 
@@ -42,6 +43,8 @@ const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const toggleSearch = () => {
     setSearchOpen(prev => !prev);
   };
@@ -72,6 +75,18 @@ const Navbar = () => {
         <Link to="/recipes"  className={styles.navOption}>Recipes</Link>
         <Link to="/ai-search"  className={styles.navOption}>AI</Link>
         <Link to="/about"  className={styles.navOption}>About</Link>
+
+        <button className={styles.hamburgerMenu} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu">
+          {isMenuOpen ? <X size={30} strokeWidth={1} /> : <Menu size={30} strokeWidth={1.25} />}
+        </button>
+        {isMenuOpen && (
+          <div className={styles.menuText}>
+            <a href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
+            <a href="/recipes" onClick={() => setIsMenuOpen(false)}>Recipes</a>
+            <a href="/ai-search" onClick={() => setIsMenuOpen(false)}>AI</a>
+            <a href="/about" onClick={() => setIsMenuOpen(false)}>About</a>
+          </div>
+        )}
 
           <div className={styles.search}>
             <button

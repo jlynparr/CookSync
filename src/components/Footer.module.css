@@ -1,8 +1,6 @@
-  /* Footer Section */
-
   .footerImage {
     width: 100%;
-    min-height: 100vh; /* adjust as needed */
+    min-height: 100vh;
     background-image: url('/your/path/to/footer-image.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,6 +25,10 @@
     grid-row: 1 / span 2;
     font-size: clamp(1rem, 2vw, 2rem);
     width: 20vw;
+  }
+
+  .logoCopyIconsMobile {
+    display: none;
   }
   
   .bottomLogo {
@@ -74,7 +76,6 @@
     background-color: #FFF;
   }
 
-  /* Social Media Icons */
   .socialMediaIcons {
     grid-column: 5;
     grid-row: 1 / span 2;
@@ -100,4 +101,54 @@
     width: 4vw;
     height: 5vh;
     object-fit: contain;
+  }
+
+  @media (max-width:768px) {
+      .footerImage {
+        width: 100vw;
+        min-height: 40vh; 
+        height: 40vh;
+        max-height: 40vh;
+      }
+
+
+      .logoCopyIcons{
+        display: none;
+      }
+
+      .logoCopyIconsMobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #080814;
+      }
+
+      .bottomLogo {
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 50vw;
+        border-radius: 4vb;
+        margin: 0 auto;
+      }
+
+      .bottomLinks {
+        font-size: 1.75rem;
+        margin-left: -10vw;
+      }
+
+      .lineSplit {
+        margin-left: -2vw;
+      }
+
+      .socialMediaIcons {
+        font-size: 1.75rem;
+        margin-left: -12vw;
+      }
+
+      .socialIcon {
+        width: 15vw;
+        height: 5vh;
+      }
+    
   }

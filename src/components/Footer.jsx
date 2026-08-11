@@ -18,6 +18,13 @@ const Footer = () => {
         <div className={styles.footerImage}
               style={{ backgroundImage: `url(${foodImage1})`}}
         ></div>
+        <div className={styles.logoCopyIconsMobile}>
+            <Link to="/"> <div className={styles.bottomLogo}
+              style={{ backgroundImage: `url(${bottomLogo})`}}
+            ></div>
+            </Link>  
+            <div>&copy; Copyright 2025</div>
+          </div>
         <div className={styles.footer}>
           <div className={styles.logoCopyIcons}>
             <Link to="/"> <div className={styles.bottomLogo}

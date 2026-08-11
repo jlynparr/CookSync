@@ -81,10 +81,10 @@ const Navbar = () => {
         </button>
         {isMenuOpen && (
           <div className={styles.menuText}>
-            <a href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
-            <a href="/recipes" onClick={() => setIsMenuOpen(false)}>Recipes</a>
-            <a href="/ai-search" onClick={() => setIsMenuOpen(false)}>AI</a>
-            <a href="/about" onClick={() => setIsMenuOpen(false)}>About</a>
+            <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link to="/recipes" onClick={() => setIsMenuOpen(false)}>Recipes</Link>
+            <Link to="/ai-search" onClick={() => setIsMenuOpen(false)}>AI</Link>
+            <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
           </div>
         )}
 
